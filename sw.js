@@ -1,5 +1,5 @@
 /* Офлайн-кэш: приложение открывается без интернета после первого запуска */
-const VERSION = "masterskaya-2026-09-18-1";
+const VERSION = "masterskaya-2026-09-18-12";
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));

@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Мастерская</title>
-<meta name="theme-color" content="#DCE0DE" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#101615" media="(prefers-color-scheme: dark)">
+<title>Верстак</title>
+<meta name="theme-color" content="#EFE5D8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171210" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Мастерская">
+<meta name="apple-mobile-web-app-title" content="Верстак">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png" type="image/png">
@@ -22,34 +22,34 @@ function next(){if(window.XLSX||i>=s.length)return;var e=document.createElement(
 </script>
 <style>
 :root{
-  --bg:#DCE0DE; --card:#EEF0EE; --row:#F6F7F5; --chip:#E3E7E5; --ink:#0F171A; --muted:#6A7471; --line:#D2D8D5;
-  --teal:#0B5A5E; --teal-ink:#0B5A5E; --on-teal:#FFFFFF;
-  --money:#7A4E0A; --rust:#8A3510; --reserve-ink:#0A4A50; --red:#B0392A;
-  --c-plan:#8F969A; --c-wip:#DE8B45; --c-ready:#3A9C8A; --c-res:#0A4E54; --c-sold:#A16247;
-  --b-red:#F1D6D1; --b-green:#D4E7E1; --b-blue:#D8E4EA; --t-blue:#2C5C74; --b-orange:#F5E1CD; --t-orange:#94501A; --b-money:#F3E4BF; --b-grey:#E3E6E4;
-  --banner:#F3DCA3; --banner-btn:#B08C3E;
+  --bg:#EFE5D8; --card:#FAF3E8; --row:#FFFCF6; --chip:#E9DCCB; --ink:#3B2F26; --muted:#8A7969; --line:#E0D1BE;
+  --teal:#8A5C3C; --teal-ink:#7A4F32; --on-teal:#FFF8F0;
+  --money:#A1732C; --rust:#B0623C; --reserve-ink:#5F6F7E; --red:#AE4A38;
+  --c-plan:#BCAB96; --c-wip:#D9A05B; --c-ready:#7E9060; --c-res:#6F8296; --c-sold:#B5876B;
+  --b-red:#F2DED6; --b-green:#E2E8D5; --b-blue:#DFE5EA; --t-blue:#4E6072; --b-orange:#F5E4CE; --t-orange:#9A612A; --b-money:#F3E5C8; --b-grey:#EADFD0;
+  --banner:#F0DDB2; --banner-btn:#BA9053;
   --r-card:18px; --r-ctl:12px;
   --font:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#101615; --card:#19211F; --row:#1F2826; --chip:#26302E; --ink:#E6ECEA; --muted:#98A4A0; --line:#2C3634;
-    --teal:#2F8F8A; --teal-ink:#6FC4B6; --on-teal:#FFFFFF;
-    --money:#D9AE5F; --rust:#E58E62; --reserve-ink:#7CC7C4; --red:#E7826F;
-    --c-plan:#7F878B; --c-wip:#E39A57; --c-ready:#48B29E; --c-res:#3E8C93; --c-sold:#C07A5E;
-    --b-red:#44261F; --b-green:#1D3833; --b-blue:#1F3039; --t-blue:#9CC6DA; --b-orange:#3E2C1C; --t-orange:#EDB07A; --b-money:#3A2F1B; --b-grey:#28312F;
-    --banner:#3E3420; --banner-btn:#A7843A;
+    --bg:#171210; --card:#221B16; --row:#2A211B; --chip:#33271F; --ink:#EEE3D5; --muted:#A69686; --line:#392D24;
+    --teal:#A5714A; --teal-ink:#D0A275; --on-teal:#FFF8F0;
+    --money:#D7AC68; --rust:#D98A5F; --reserve-ink:#9DB2C6; --red:#DE8570;
+    --c-plan:#8D7E6C; --c-wip:#D19A5C; --c-ready:#8CA06B; --c-res:#7F93A8; --c-sold:#C08E6C;
+    --b-red:#412620; --b-green:#28301F; --b-blue:#222C34; --t-blue:#A9C2D6; --b-orange:#3D2C1C; --t-orange:#E8B57E; --b-money:#3A2E1B; --b-grey:#2E241D;
+    --banner:#3B2F1B; --banner-btn:#A9803F;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#101615; --card:#19211F; --row:#1F2826; --chip:#26302E; --ink:#E6ECEA; --muted:#98A4A0; --line:#2C3634;
-  --teal:#2F8F8A; --teal-ink:#6FC4B6; --on-teal:#FFFFFF;
-  --money:#D9AE5F; --rust:#E58E62; --reserve-ink:#7CC7C4; --red:#E7826F;
-  --c-plan:#7F878B; --c-wip:#E39A57; --c-ready:#48B29E; --c-res:#3E8C93; --c-sold:#C07A5E;
-  --b-red:#44261F; --b-green:#1D3833; --b-blue:#1F3039; --t-blue:#9CC6DA; --b-orange:#3E2C1C; --t-orange:#EDB07A; --b-money:#3A2F1B; --b-grey:#28312F;
-  --banner:#3E3420; --banner-btn:#A7843A;
+  --bg:#171210; --card:#221B16; --row:#2A211B; --chip:#33271F; --ink:#EEE3D5; --muted:#A69686; --line:#392D24;
+  --teal:#A5714A; --teal-ink:#D0A275; --on-teal:#FFF8F0;
+  --money:#D7AC68; --rust:#D98A5F; --reserve-ink:#9DB2C6; --red:#DE8570;
+  --c-plan:#8D7E6C; --c-wip:#D19A5C; --c-ready:#8CA06B; --c-res:#7F93A8; --c-sold:#C08E6C;
+  --b-red:#412620; --b-green:#28301F; --b-blue:#222C34; --t-blue:#A9C2D6; --b-orange:#3D2C1C; --t-orange:#E8B57E; --b-money:#3A2E1B; --b-grey:#2E241D;
+  --banner:#3B2F1B; --banner-btn:#A9803F;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -144,7 +144,7 @@ button.stat{cursor:pointer}
 
 nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:7;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
 nav.tabs::after{content:"";position:absolute;left:0;right:0;top:100%;height:100vh;background:var(--card)}
-nav.tabs .in{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+nav.tabs .in{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr)}
 nav.tabs button{border:0;background:none;padding:9px 4px 10px;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:.8rem;color:var(--muted);cursor:pointer}
 nav.tabs button .i{width:1.5rem;height:1.5rem}
 nav.tabs button[aria-current="page"]{color:var(--teal-ink);font-weight:600}
@@ -288,7 +288,7 @@ label.f textarea{min-height:110px;resize:vertical;line-height:1.45}
 .sizes button{border:0;background:var(--chip);border-radius:12px;padding:.6rem .4rem;cursor:pointer}
 .sizes button[aria-pressed="true"]{background:var(--teal);color:var(--on-teal)}
 /* бюджет */
-nav.tabs .in{grid-template-columns:repeat(5,1fr)}
+nav.tabs .in{grid-template-columns:repeat(6,1fr)}
 nav.tabs button{font-size:.74rem;padding:9px 2px 10px}
 .monthsw{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 10px}
 .monthsw b{font-size:1.1rem;font-weight:700}
@@ -380,10 +380,80 @@ input[type="number"]{-moz-appearance:textfield;appearance:textfield}
 .bigtotal b{font-size:2rem;font-weight:800;color:var(--money)}
 .sellbtn{width:100%;min-height:56px;font-size:1.1rem;margin-top:6px}
 .cashbox .chips{flex-wrap:wrap;overflow:visible;margin:0 0 10px;padding:0}
+
+/* компактная карточка склада */
+.card.compact{display:block;padding:10px 12px}
+.crow{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.crow.sub{margin-top:3px}
+.cname{font-weight:700;font-size:1.08rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cprice{font-weight:600;font-size:1rem;color:var(--money);white-space:nowrap}
+.cprice small{font-weight:400;color:var(--muted);font-size:.78rem}
+.cmeta{color:var(--muted);font-size:.82rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mcounts{display:flex;flex-wrap:wrap;gap:2px 10px;font-size:.8rem;color:var(--muted);min-width:0}
+.mcounts b{color:var(--ink);font-weight:600}
+.mcounts .dot{width:7px;height:7px;margin-right:3px}
+.ctot{font-size:.8rem;color:var(--muted);white-space:nowrap}
+.ctot b{color:var(--money);font-weight:700}
+.ingot.thin{height:6px;margin-top:8px;border-radius:4px}
+.card.compact .flags{margin-top:7px}
+.pill.sm{font-size:.76rem;padding:3px 8px;border-radius:8px}
+.pill.sm .i{width:14px;height:14px}
+
+/* массовое «готово» */
+.bulkrow{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.bulkrow:last-child{border-bottom:0}
+.bulkrow .l{flex:1;min-width:0}
+.bulkrow .l b{display:block;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bulkrow .l small{display:block;color:var(--muted);font-size:.8rem}
+.bqty{width:4.6rem;height:44px;text-align:center;border:1px solid var(--line);border-radius:12px;background:var(--row);color:var(--ink);font-size:16px;flex:none}
+
+nav.tabs button{font-size:.68rem;padding:9px 1px 10px;gap:2px}
+nav.tabs button .i{width:1.35rem;height:1.35rem}
+.crow .cmeta{flex:1;min-width:0}
+.crow .cprice{flex:none}
+
+.seg.modes{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
+.seg.modes button{padding:11px 10px;font-weight:600}
+nav.tabs button{font-size:.74rem}
+
+/* компактная сводка склада */
+.sumbar{background:var(--card);border-radius:var(--r-card);padding:8px 6px;margin-bottom:10px}
+.scells{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px}
+.scell{display:flex;flex-direction:column;align-items:center;gap:1px;border:0;background:none;padding:6px 2px;border-radius:12px;cursor:pointer;color:var(--ink);min-width:0}
+.scell b{font-size:1.12rem;font-weight:700;white-space:nowrap}
+.scell small{font-size:.72rem;color:var(--muted);text-align:center;line-height:1.1}
+.scell[aria-pressed="true"]{background:var(--chip)}
+.scell.money{cursor:default}
+.scell.money b{color:var(--money);font-size:1rem}
+.sumbar .flags{display:flex;flex-wrap:wrap;gap:6px;padding:6px 6px 2px}
+.sumbar .flags button{border:0;cursor:pointer}
+.searchrow{display:flex;gap:8px;align-items:stretch;margin-bottom:12px}
+.searchrow .searchbox{flex:1;margin-bottom:0}
+.btn.iconbtn{flex:none;width:48px;padding:0;justify-content:center}
+
+/* экран «Сегодня» */
+.todaydate{margin:-4px 4px 10px;color:var(--muted);font-size:.9rem;text-transform:lowercase}
+.bigmoney{background:var(--card);border-radius:var(--r-card);padding:14px 16px;margin-bottom:10px;display:flex;flex-direction:column;gap:2px}
+.bigmoney > span{color:var(--muted);font-size:.86rem}
+.bigmoney b{font-size:2.1rem;font-weight:800;color:var(--money);line-height:1.1;letter-spacing:-.02em}
+.bigmoney small{color:var(--muted);font-size:.78rem;line-height:1.3}
+.paybar{display:block;height:5px;border-radius:3px;background:var(--chip);margin-top:8px;overflow:hidden}
+.paybar i{display:block;height:100%;background:var(--c-ready)}
+nav.tabs button{font-size:.66rem;padding:9px 1px 10px}
+nav.tabs button .i{width:1.3rem;height:1.3rem}
+
+/* изделия внутри серии — строками, а не отдельными карточками */
+.sgroup .list{background:var(--card);border-radius:var(--r-card);overflow:hidden;gap:0}
+.sgroup .list .card.compact{background:transparent;border-radius:0;border-bottom:1px solid var(--line);padding:11px 14px}
+.sgroup .list .card.compact:last-child{border-bottom:0}
+.sgroup .list .empty{background:transparent}
+
+.toast.with-btn{display:flex;align-items:center;gap:12px}
+.toast.with-btn button{border:0;background:none;color:var(--banner);font-weight:700;font-size:.92rem;cursor:pointer;padding:2px 2px}
 </style></head><body><div id="app"></div><script>
 /* ===== CORE: данные, расчёты, цепочки ===== */
 const Core = (() => {
-  const FORMAT_VERSION = 4;
+  const FORMAT_VERSION = 5;
   const STATUSES = ["Новый", "В работе", "Готов", "Отправлен", "Получен", "Отменён"];
   const CANCELLED = "Отменён";
 
@@ -420,7 +490,7 @@ const Core = (() => {
         incomeCats: ["Прочий доход"]
       },
       items: [], clients: [], subs: [], orders: [], lines: [], payments: [], plans: [], log: [],
-      accounts: [], ops: [], loans: [], batches: [], shows: [], showItems: []
+      accounts: [], ops: [], loans: [], batches: [], shows: [], showItems: [], drops: [], signups: []
     };
   }
 
@@ -457,7 +527,7 @@ const Core = (() => {
     });
     O.forEach(d => {
       d.gross = round2(d.gross);
-      d.discountAmt = round2(d.gross * num(d.order.discount) / 100);
+      d.discountAmt = num(d.order.discountSum) > 0 ? round2(Math.min(d.gross, num(d.order.discountSum))) : round2(d.gross * num(d.order.discount) / 100);
       d.total = round2(d.gross - d.discountAmt);
       d.paid = round2(d.paid);
     });
@@ -485,6 +555,12 @@ const Core = (() => {
       d.recognizable = full && d.paid >= d.total - 0.005;
     });
 
+    // Расходы, привязанные к заказу (доставка и т. п.)
+    const orderExpense = new Map();
+    live(state.ops || []).forEach(op => {
+      if (op.kind !== "Расход" || !op.orderId) return;
+      orderExpense.set(op.orderId, round2((orderExpense.get(op.orderId) || 0) + num(op.amount)));
+    });
     // Себестоимость и маржа
     O.forEach(d => {
       const k = d.gross > 0 ? d.total / d.gross : 0;
@@ -498,7 +574,8 @@ const Core = (() => {
         rev += num(x.line.qty) * num(x.line.price) * k;
       });
       d.cost = round2(cost);
-      d.margin = round2(rev - cost);
+      d.extraCost = orderExpense.get(d.order.id) || 0;
+      d.margin = round2(rev - cost - d.extraCost);
     });
 
     // Выставки: взято, продано, осталось на стенде
@@ -518,14 +595,21 @@ const Core = (() => {
       x.revenue += d.total; x.margin += d.margin;
       d.lines.forEach(l => { const row = x.items.get(l.line.itemId); x.soldQty += num(l.line.qty); if (row) row.sold += num(l.line.qty); });
     });
+    live(state.ops || []).forEach(op => {
+      if (op.kind !== "Расход" || !op.showId) return;
+      const x = SH.get(op.showId); if (!x) return;
+      x.expenses = round2((x.expenses || 0) + num(op.amount));
+    });
     const atShow = new Map();
     SH.forEach(x => {
+      x.expenses = x.expenses || 0;
       x.items.forEach(row => {
         row.left = Math.max(0, row.taken - row.sold);
         x.takenQty += row.taken; x.takenSum += row.taken * row.price;
         if (!x.show.closed) atShow.set(row.itemId, (atShow.get(row.itemId) || 0) + row.left);
       });
       x.revenue = round2(x.revenue); x.margin = round2(x.margin); x.takenSum = round2(x.takenSum);
+      x.profit = round2(x.margin - x.expenses);
       x.orders.sort((a, b) => ((a.order.createdAt || "") < (b.order.createdAt || "") ? 1 : -1));
     });
 
@@ -560,6 +644,20 @@ const Core = (() => {
       di.totalQty = di.planned + Math.max(0, di.onHand);
     });
 
+    // Дропы: записи и заказы по ним
+    const drops = live(state.drops || []);
+    const DR = new Map();
+    drops.forEach(dr => DR.set(dr.id, { drop: dr, item: itemMap.get(dr.itemId) || null, signups: [], people: 0, qty: 0, ordered: 0, waiting: 0 }));
+    live(state.signups || []).forEach(su => {
+      const x = DR.get(su.dropId); if (!x) return;
+      const order = su.orderId ? orderMap.get(su.orderId) : null;
+      const q = Math.max(1, Math.round(num(su.qty)));
+      x.signups.push({ rec: su, client: clientMap.get(su.clientId) || null, qty: q, order });
+      x.people += 1; x.qty += q;
+      if (order && order.status !== CANCELLED) x.ordered += q; else x.waiting += q;
+    });
+    DR.forEach(x => x.signups.sort((a, b) => ((a.rec.date || a.rec.createdAt || "") < (b.rec.date || b.rec.createdAt || "") ? -1 : 1)));
+
     // Клиенты
     const C = new Map();
     const t = today();
@@ -590,7 +688,7 @@ const Core = (() => {
     let stockValue = 0;
     I.forEach(di => { if (di.free > 0) stockValue += di.free * num(di.item.price); });
 
-    return { O, I, C, SH, showMap, itemMap, clientMap, orderMap,
+    return { O, I, C, SH, DR, showMap, itemMap, clientMap, orderMap,
       totals: { revenueMonth: round2(revenueMonth), marginMonth: round2(marginMonth), advances: round2(advances), stockValue: round2(stockValue) } };
   }
 
@@ -599,7 +697,7 @@ const Core = (() => {
   /* --- Переход со старых данных: счета вместо «способа оплаты» --- */
   function migrate(state) {
     const def = emptyState();
-    ["accounts", "ops", "loans", "batches", "shows", "showItems"].forEach(t => { if (!Array.isArray(state[t])) state[t] = []; });
+    ["accounts", "ops", "loans", "batches", "shows", "showItems", "drops", "signups"].forEach(t => { if (!Array.isArray(state[t])) state[t] = []; });
     if (!state.settings || typeof state.settings !== "object") state.settings = {};
     Object.keys(def.settings).forEach(key => { if (state.settings[key] === undefined) state.settings[key] = def.settings[key]; });
     ["items", "clients", "subs", "orders", "lines", "payments", "plans", "log"].forEach(t => { if (!Array.isArray(state[t])) state[t] = []; });
@@ -633,6 +731,7 @@ const Core = (() => {
     delete state.settings.hourRate;
     state.items.forEach(it => { delete it.hours; });
     state.orders.forEach(o => { delete o.track; });
+    (state.shows || []).forEach(sh => { delete sh.place; });
     state.v = FORMAT_VERSION;
     return notes;
   }
@@ -765,7 +864,7 @@ const Core = (() => {
       ["id", "ID", "id"], ["name", "Название", "text", true], ["series", "Серия", "text"], ["material", "Материал", "text"],
       ["coating", "Покрытие", "text"], ["matCost", "Материалы, ₽", "num"], ["consCost", "Расходники, ₽", "num"],
       ["price", "Цена, ₽", "num"],
-      ["readyTotal", "Изготовлено всего, шт", "int"], ["note", "Заметка", "text"],
+      ["readyTotal", "Изготовлено всего, шт", "int"], ["madeAt", "Дата изготовления", "date"], ["note", "Заметка", "text"],
       ["createdAt", "Создано", "ts"], ["updatedAt", "Изменено", "ts"], ["deleted", "Удалено", "bool"]
     ]},
     clients: { sheet: "Клиенты", cols: [
@@ -780,7 +879,7 @@ const Core = (() => {
     ]},
     orders: { sheet: "Заказы", cols: [
       ["id", "ID", "id"], ["no", "Номер", "int"], ["clientId", "ID клиента", "ref", true], ["date", "Дата", "date"],
-      ["status", "Статус", "text", true], ["discount", "Скидка, %", "num"], ["pickup", "Пункт выдачи", "text"],
+      ["status", "Статус", "text", true], ["discount", "Скидка, %", "num"], ["discountSum", "Скидка суммой, ₽", "num"], ["pickup", "Пункт выдачи", "text"],
       ["note", "Заметка", "text"], ["showId", "ID выставки", "ref"], ["recognizedAt", "Дата списания и выручки", "date"],
       ["createdAt", "Создано", "ts"], ["updatedAt", "Изменено", "ts"], ["deleted", "Удалено", "bool"]
     ]},
@@ -805,11 +904,20 @@ const Core = (() => {
       ["createdAt", "Создано", "ts"], ["updatedAt", "Изменено", "ts"], ["deleted", "Удалено", "bool"]
     ]},
     shows: { sheet: "Выставки", cols: [
-      ["id", "ID", "id"], ["name", "Название", "text", true], ["place", "Место", "text"], ["dateFrom", "Дата начала", "date"], ["dateTo", "Дата окончания", "date"],
-      ["closed", "Завершена", "bool"], ["note", "Заметка", "text"], ["createdAt", "Создано", "ts"], ["updatedAt", "Изменено", "ts"], ["deleted", "Удалено", "bool"]
+      ["id", "ID", "id"], ["name", "Название", "text", true], ["dateFrom", "Дата начала", "date"], ["dateTo", "Дата окончания", "date"], ["closed", "Завершена", "bool"], ["note", "Заметка", "text"], ["createdAt", "Создано", "ts"], ["updatedAt", "Изменено", "ts"], ["deleted", "Удалено", "bool"]
     ]},
     showItems: { sheet: "Взято на выставки", cols: [
       ["id", "ID", "id"], ["showId", "ID выставки", "ref", true], ["itemId", "ID изделия", "ref", true], ["qty", "Взято, шт", "int"], ["price", "Цена на выставке, ₽", "num"],
+      ["createdAt", "Создано", "ts"], ["updatedAt", "Изменено", "ts"], ["deleted", "Удалено", "bool"]
+    ]},
+    drops: { sheet: "Дропы", cols: [
+      ["id", "ID", "id"], ["itemId", "ID изделия", "ref", true], ["stage", "Стадия", "text"], ["price", "Цена дропа, ₽", "num"],
+      ["planQty", "Планируемый тираж, шт", "int"], ["due", "Срок", "date"], ["closed", "Завершён", "bool"], ["note", "Заметка", "text"],
+      ["createdAt", "Создано", "ts"], ["updatedAt", "Изменено", "ts"], ["deleted", "Удалено", "bool"]
+    ]},
+    signups: { sheet: "Записи в дроп", cols: [
+      ["id", "ID", "id"], ["dropId", "ID дропа", "ref", true], ["clientId", "ID клиента", "ref", true], ["qty", "Штук", "int"],
+      ["date", "Дата записи", "date"], ["stage", "Записался на стадии", "text"], ["orderId", "ID заказа", "ref"], ["note", "Заметка", "text"],
       ["createdAt", "Создано", "ts"], ["updatedAt", "Изменено", "ts"], ["deleted", "Удалено", "bool"]
     ]},
     accounts: { sheet: "Счета", cols: [
@@ -818,7 +926,7 @@ const Core = (() => {
     ]},
     ops: { sheet: "Операции", cols: [
       ["id", "ID", "id"], ["date", "Дата", "date"], ["kind", "Вид", "text", true], ["category", "Категория", "text"], ["amount", "Сумма, ₽", "num"],
-      ["accountId", "ID счёта", "ref"], ["toAccountId", "ID счёта зачисления (перевод)", "ref"], ["loanId", "ID кредита", "ref"],
+      ["accountId", "ID счёта", "ref"], ["toAccountId", "ID счёта зачисления (перевод)", "ref"], ["loanId", "ID кредита", "ref"], ["orderId", "ID заказа", "ref"], ["showId", "ID выставки", "ref"],
       ["principal", "Основной долг, ₽", "num"], ["interest", "Проценты, ₽", "num"], ["counterparty", "Контрагент", "text"],
       ["closedAt", "Аванс закрыт (дата)", "date"], ["note", "Заметка", "text"],
       ["createdAt", "Создано", "ts"], ["updatedAt", "Изменено", "ts"], ["deleted", "Удалено", "bool"]
@@ -832,7 +940,7 @@ const Core = (() => {
       ["id", "ID", "id"], ["at", "Когда", "ts"], ["entity", "Раздел", "text"], ["entityId", "ID записи", "text"], ["text", "Что произошло", "text"]
     ]}
   };
-  const TABLES = ["items", "batches", "clients", "subs", "orders", "lines", "payments", "plans", "shows", "showItems", "accounts", "ops", "loans", "log"];
+  const TABLES = ["items", "batches", "clients", "subs", "orders", "lines", "payments", "plans", "drops", "signups", "shows", "showItems", "accounts", "ops", "loans", "log"];
   const CALC = "расчёт: ";
 
   function calcColumns(table, row, D, state) {
@@ -851,6 +959,8 @@ const Core = (() => {
       return { [CALC + "клиент"]: c ? c.name : "", [CALC + "сумма без скидки, ₽"]: d.gross, [CALC + "итого, ₽"]: d.total,
         [CALC + "оплачено, ₽"]: d.paid, [CALC + "остаток к оплате, ₽"]: round2(Math.max(0, d.total - d.paid)), [CALC + "маржа, ₽"]: d.margin };
     }
+    if (table === "drops") { const x = D.DR.get(row.id); const it = D.itemMap.get(row.itemId); return { [CALC + "изделие"]: it ? it.name : "", [CALC + "записалось, чел"]: x ? x.people : "", [CALC + "записалось, шт"]: x ? x.qty : "" }; }
+    if (table === "signups") { const c = D.clientMap.get(row.clientId); const o = row.orderId ? state.orders.find(z => z.id === row.orderId) : null; return { [CALC + "клиент"]: c ? c.name : "", [CALC + "номер заказа"]: o ? o.no : "" }; }
     if (table === "shows") { const x = D.SH.get(row.id); return x ? { [CALC + "взято, шт"]: x.takenQty, [CALC + "продано, шт"]: x.soldQty, [CALC + "выручка, ₽"]: x.revenue } : {}; }
     if (table === "showItems") { const it = D.itemMap.get(row.itemId), sh = D.showMap.get(row.showId); return { [CALC + "изделие"]: it ? it.name : "", [CALC + "выставка"]: sh ? sh.name : "" }; }
     if (table === "batches") { const it = D.itemMap.get(row.itemId); return { [CALC + "изделие"]: it ? it.name : "" }; }
@@ -921,6 +1031,7 @@ const Core = (() => {
       items: ["себестоимость, ₽", "маржа, ₽", "осталось сделать, шт", "на выставках, шт", "свободно готовых, шт", "в резерве, шт", "продано, шт", "не хватает под заказы, шт"],
       clients: ["всего оплатил, ₽", "долг, ₽", "ожидается, ₽"],
       orders: ["клиент", "сумма без скидки, ₽", "итого, ₽", "оплачено, ₽", "остаток к оплате, ₽", "маржа, ₽"],
+      drops: ["изделие", "записалось, чел", "записалось, шт"], signups: ["клиент", "номер заказа"],
       shows: ["взято, шт", "продано, шт", "выручка, ₽"], showItems: ["изделие", "выставка"], batches: ["изделие"], lines: ["изделие"], payments: ["клиент", "номер заказа", "счёт"], plans: ["клиент", "номер заказа"], subs: [],
       accounts: ["остаток, ₽"], ops: ["счёт", "счёт зачисления", "кредит"], loans: ["остаток долга, ₽", "следующий платёж"]
     }[t] || [];
@@ -993,6 +1104,12 @@ const Core = (() => {
       if (r.status && !STATUSES.includes(r.status)) errors.push(`Лист «Заказы», строка ${r._row}: неизвестный статус «${r.status}». Допустимо: ${STATUSES.join(", ")}.`);
       if (!r.status) r.status = "Новый";
     });
+    const dropIds = ids("drops");
+    st.drops.forEach(r => ref("drops", r, "itemId", itemIds, "изделие"));
+    st.signups.forEach(r => {
+      ref("signups", r, "dropId", dropIds, "дроп"); ref("signups", r, "clientId", clientIds, "клиент"); ref("signups", r, "orderId", orderIds, "заказ");
+      if (!r.deleted && r.qty <= 0) r.qty = 1;
+    });
     const showIds = ids("shows");
     st.orders.forEach(r => ref("orders", r, "showId", showIds, "выставка"));
     st.showItems.forEach(r => { ref("showItems", r, "showId", showIds, "выставка"); ref("showItems", r, "itemId", itemIds, "изделие"); });
@@ -1014,6 +1131,8 @@ const Core = (() => {
     st.payments.forEach(r => { if (r.accountId) ref("payments", r, "accountId", accountIds, "счёт"); });
     st.ops.forEach(r => {
       if (r.deleted) return;
+      ref("ops", r, "orderId", orderIds, "заказ");
+      if (r.showId && !ids("shows").has(r.showId)) errors.push(`Лист «Операции», строка ${r._row}: выставка ${r.showId} не найдена.`);
       if (!OP_KINDS.includes(r.kind)) errors.push(`Лист «Операции», строка ${r._row}: неизвестный вид «${r.kind}». Допустимо: ${OP_KINDS.join(", ")}.`);
       if (!r.accountId) errors.push(`Лист «Операции», строка ${r._row}: не указан ID счёта.`);
       ref("ops", r, "accountId", accountIds, "счёт");
@@ -1091,6 +1210,12 @@ const KEY = "masterskaya.v1";
 const UIKEY = "masterskaya.ui";
 function getSize() { try { return localStorage.getItem(UIKEY) || "s"; } catch (e) { return "s"; } }
 function applySize(sz) { document.documentElement.dataset.size = sz; try { localStorage.setItem(UIKEY, sz); } catch (e) {} }
+function getTheme() { try { return localStorage.getItem(UIKEY + ".theme") || "auto"; } catch (e) { return "auto"; } }
+function applyTheme(th) {
+  if (th === "auto") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = th;
+  try { localStorage.setItem(UIKEY + ".theme", th); } catch (e) {}
+}
+applyTheme(getTheme());
 applySize(getSize());
 const $ = (sel, root = document) => root.querySelector(sel);
 const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -1098,6 +1223,19 @@ const nf = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 });
 const rub = n => nf.format(Core.round2(Core.num(n))).replace("-", "−") + " ₽";
 const pcs = n => nf.format(n) + " шт";
 const fdate = d => { if (!d) return ""; const m = String(d).match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? `${m[3]}.${m[2]}.${m[1]}` : d; };
+function ageText(d) {
+  if (!d) return "";
+  const m = String(d).match(/^(\d{4})-(\d{2})-(\d{2})/); if (!m) return "";
+  const then = new Date(+m[1], +m[2] - 1, +m[3]), now = new Date();
+  const days = Math.floor((new Date(now.getFullYear(), now.getMonth(), now.getDate()) - then) / 864e5);
+  if (days < 0) return "";
+  if (days === 0) return "сегодня";
+  if (days < 31) return `${days} ${plural(days, "день", "дня", "дней")}`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months} ${plural(months, "месяц", "месяца", "месяцев")}`;
+  const years = Math.floor(months / 12), rest = months % 12;
+  return `${years} ${plural(years, "год", "года", "лет")}${rest ? ` ${rest} ${plural(rest, "месяц", "месяца", "месяцев")}` : ""}`;
+}
 const fdt = iso => { if (!iso) return ""; const d = new Date(iso); return isNaN(d) ? iso : d.toLocaleString("ru-RU", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" }); };
 
 /* ---------- Иконки ---------- */
@@ -1135,6 +1273,7 @@ const P = {
   plus: '<path d="M12 5v14M5 12h14"/>',
   chev: '<path d="m9 5 7 7-7 7"/>',
   docplus: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 11.5v6M9 14.5h6"/>',
+  home: '<path d="M4 11.5 12 4.5l8 7"/><path d="M6 10.5V20h12v-9.5"/><path d="M10 20v-5h4v5"/>',
   wallet: '<path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H18v3"/><rect x="3.5" y="7.5" width="17" height="12" rx="2.5"/><path d="M16 13.5h4.5"/><circle cx="16" cy="13.5" r=".6"/>',
   swap: '<path d="M4 8h14M14.5 4.5 18 8l-3.5 3.5M20 16H6M9.5 12.5 6 16l3.5 3.5"/>',
   bank: '<path d="M3 9.5 12 4l9 5.5M5 10v7M9.5 10v7M14.5 10v7M19 10v7M3 20h18"/>',
@@ -1147,7 +1286,7 @@ const ic = (n, cls = "") => `<svg class="i ${cls}" viewBox="0 0 24 24" aria-hidd
 
 let S, D, storageOk = true;
 const plural = (n, one, few, many) => { const a = Math.abs(n) % 100, b = a % 10; return a > 10 && a < 20 ? many : b > 1 && b < 5 ? few : b === 1 ? one : many; };
-const view = { openSeries: {}, tab: "stock", stockFilter: "all", orderFilter: "active", q: "", cq: "", oq: "", btab: "overview", ym: Core.today().slice(0, 7), opFilter: "all" };
+const view = { openSeries: {}, omode: "orders", tab: "today", stockFilter: "all", orderFilter: "active", q: "", cq: "", oq: "", btab: "overview", ym: Core.today().slice(0, 7), opFilter: "all" };
 const sheets = [];
 
 /* ---------- Хранение ---------- */
@@ -1163,23 +1302,45 @@ function save() {
   catch (e) { storageOk = false; toast("Не удалось сохранить в память телефона. Выгрузите копию в Excel."); }
 }
 function log(entity, entityId, text) { S.log.push({ id: Core.uid(), at: Core.nowIso(), entity, entityId, text }); }
-function commit() {
+const LOG_CAP = 2000;
+let prevSnap = null;
+function commit(undoLabel) {
+  const before = prevSnap;
   const notes = Core.reconcile(S);
   notes.forEach(n => log(n.entity, n.entityId, n.text));
+  if (S.log.length > LOG_CAP) S.log = S.log.slice(-LOG_CAP);
   save();
   D = Core.derive(S);
   render();
-  if (notes.length) toast(notes[notes.length - 1].text);
+  prevSnap = snapshot();
+  if (undoLabel && before) toastUndo(undoLabel, before);
+  else if (notes.length) toast(notes[notes.length - 1].text);
+}
+function snapshot() { try { return JSON.stringify(S); } catch (e) { return null; } }
+function toastUndo(msg, before) {
+  document.querySelectorAll(".toast").forEach(x => x.remove());
+  const t = document.createElement("div");
+  t.className = "toast with-btn";
+  t.innerHTML = `<span>${esc(msg)}</span><button type="button">Отменить</button>`;
+  t.querySelector("button").onclick = () => {
+    t.remove();
+    try { S = JSON.parse(before); } catch (e) { toast("Не удалось отменить"); return; }
+    sheets.length = 0; save(); D = Core.derive(S); prevSnap = snapshot(); render();
+    toast("Действие отменено");
+  };
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 8000);
 }
 function touch(rec) { rec.updatedAt = Core.nowIso(); if (!rec.createdAt) rec.createdAt = rec.updatedAt; return rec; }
 const find = (t, id) => S[t].find(r => r.id === id && !r.deleted);
 
 /* ---------- Каркас ---------- */
-const TABS = [["stock", "Склад", "box"], ["orders", "Заказы", "doc"], ["clients", "Клиенты", "users"], ["budget", "Бюджет", "wallet"], ["shows", "Выставки", "bookmark"]];
+const TABS = [["today", "Сегодня", "home"], ["stock", "Склад", "box"], ["orders", "Заказы", "doc"], ["clients", "Клиенты", "users"], ["budget", "Бюджет", "wallet"], ["shows", "Выставки", "bookmark"]];
 function scrollTop0() { const w = $(".wrap"); if (w) w.scrollTop = 0; }
 function render() {
-  const title = { stock: "Склад", orders: "Заказы", clients: "Клиенты", budget: "Бюджет", shows: "Выставки", more: "Копия и настройки" }[view.tab];
+  const title = { today: "Сегодня", stock: "Склад", orders: "Заказы", clients: "Клиенты", budget: "Бюджет", shows: "Выставки", more: "Копия и настройки" }[view.tab];
   let body = "";
+  if (view.tab === "today") body = renderToday();
   if (view.tab === "stock") body = renderStock();
   if (view.tab === "orders") body = renderOrders();
   if (view.tab === "clients") body = renderClients();
@@ -1215,6 +1376,7 @@ function banners() {
   return out;
 }
 function fab() {
+  if (view.tab === "orders" && view.omode === "drops") return `<button class="fab" data-a="drop-form">${ic("plus")}<span>Дроп</span></button>`;
   const m = { stock: ["item-form", "Изделие"], orders: ["order-form", "Заказ"], clients: ["client-form", "Клиент"], budget: ["op-form", "Операция"], shows: ["show-form", "Выставка"] }[view.tab];
   return m ? `<button class="fab" data-a="${m[0]}">${ic("plus")}<span>${m[1]}</span></button>` : "";
 }
@@ -1265,6 +1427,46 @@ function renderSheet() {
   if (keepScroll) $(".sheet-body", layer).scrollTop = prevScroll;
   if (res.after) res.after(layer);
 }
+async function copyText(text, okMsg) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text);
+    else {
+      const ta = document.createElement("textarea");
+      ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      const ok = document.execCommand("copy"); ta.remove();
+      if (!ok) throw new Error("copy");
+    }
+    toast(okMsg || "Скопировано");
+  } catch (e) { openSheet(textSheet(text)); }
+}
+function textSheet(text) {
+  return () => ({ title: "Текст сообщения", key: "text", html: `<p class="hint">Скопировать автоматически не вышло — выделите и скопируйте вручную.</p>
+    <section class="block"><textarea id="t-area" style="width:100%;min-height:220px;border:0;background:transparent;color:var(--ink);font:inherit">${esc(text)}</textarea></section>
+    <div class="btns"><button class="btn primary" data-a="close">Готово</button></div>`,
+    after: l => { const t = $("#t-area", l); t.focus(); t.select(); } });
+}
+function orderMessage(d) {
+  const o = d.order, c = D.clientMap.get(o.clientId);
+  const lines = d.lines.map(x => { const it = D.itemMap.get(x.line.itemId); return `• ${it ? it.name : "изделие"}${x.line.qty > 1 ? ` ×${x.line.qty}` : ""} — ${rub(Core.num(x.line.qty) * Core.num(x.line.price))}`; });
+  const rest = Core.round2(d.total - d.paid);
+  const out = [`Заказ №${o.no}${c ? `, ${c.name}` : ""}`, "", ...lines, ""];
+  if (d.discountAmt) out.push(`Сумма: ${rub(d.gross)}`, `Скидка ${nf.format(Core.num(o.discount))}%: − ${rub(d.discountAmt)}`);
+  out.push(`Итого: ${rub(d.total)}`);
+  if (d.paid) out.push(`Оплачено: ${rub(d.paid)}`);
+  if (rest > 0.005) out.push(`К оплате: ${rub(rest)}`);
+  const pickup = o.pickup || (c && c.pickup);
+  if (pickup) out.push("", `Пункт выдачи: ${pickup}`);
+  if (o.status === "Отправлен" || o.status === "Получен") out.push("", `Статус: ${o.status.toLowerCase()}`);
+  return out.join("\n");
+}
+function readyMessage(i, di) {
+  const out = [`«${i.name}»${i.series ? ` из серии «${i.series}»` : ""} готова.`];
+  out.push(`Цена: ${rub(i.price)}`);
+  if (di && di.free > 0) out.push(`Свободно: ${di.free} шт`);
+  out.push("", "Написать, если нужна — отложу.");
+  return out.join("\n");
+}
 function toast(msg) {
   document.querySelectorAll(".toast").forEach(x => x.remove());
   const t = document.createElement("div"); t.className = "toast"; t.textContent = msg; document.body.appendChild(t);
@@ -1291,31 +1493,134 @@ function formData(root) {
   });
   return o;
 }
+function clientPicker(mode, label) {
+  const clients = Core.live(S.clients).filter(c => c.system !== "show").sort((a, b) => a.name.localeCompare(b.name, "ru"));
+  const isNew = mode === "new" || !clients.length;
+  return `<div class="chips" style="margin-bottom:10px">
+      <button type="button" data-cmode="list" aria-pressed="${!isNew}" ${clients.length ? "" : "disabled"}>Из списка</button>
+      <button type="button" data-cmode="new" aria-pressed="${isNew}">Новый клиент</button>
+    </div>
+    ${isNew ? `${fld("ФИО *", "newName", "", "text", "autocomplete=off")}
+      ${fld("Телефон", "newPhone", "", "tel", "autocomplete=off")}
+      ${fld("Пункт выдачи", "newPickup", "")}
+      ${fld("Скидка, %", "newDiscount", "", "number")}
+      <p class="hint">Клиент сразу появится во вкладке «Клиенты».</p>`
+    : sel(label || "Клиент *", "clientId", [["", "— выберите —"], ...clients.map(c => [c.id, c.name + (c.phone ? ", " + c.phone : "")])], "")}`;
+}
+function resolveClient(v) {
+  if (v.clientId) { const c = find("clients", v.clientId); return c ? { client: c } : { error: "Клиент не найден." }; }
+  const name = (v.newName || "").trim();
+  if (!name) return { error: "Выберите клиента или впишите имя нового." };
+  const disc = Core.num(v.newDiscount);
+  if (disc < 0 || disc > 100) return { error: "Скидка должна быть от 0 до 100%." };
+  const c = touch({ id: Core.uid(), name, phone: (v.newPhone || "").trim(), pickup: (v.newPickup || "").trim(), discount: disc, note: "" });
+  S.clients.push(c);
+  log("Клиент", c.id, `Добавлен клиент ${c.name}`);
+  return { client: c, created: true };
+}
 const formBtns = (label = "Сохранить") => `<div class="btns g2 bottom"><button type="button" class="btn" data-a="close">Отмена</button><button class="btn primary">${ic("check")}${esc(label)}</button></div>`;
 
+/* ===================== СЕГОДНЯ ===================== */
+function todayLabel() {
+  const d = new Date();
+  return d.toLocaleDateString("ru-RU", { weekday: "long", day: "numeric", month: "long" });
+}
+function renderToday() {
+  const t = Core.today(), B = Core.budget(S, D, t.slice(0, 7));
+  const soonLimit = (() => { const d = new Date(); d.setDate(d.getDate() + 7); return d.toISOString().slice(0, 10); })();
+  let debt = 0, freeReady = 0, toMake = 0;
+  D.C.forEach(dc => (debt += dc.debt));
+  D.I.forEach(di => { freeReady += Math.max(0, di.free); toMake += di.planned; });
+
+  const late = [], soon = [];
+  D.I.forEach(di => di.batches.forEach(x => {
+    if (x.open <= 0 || !x.batch.due) return;
+    const row = { date: x.batch.due, title: di.item.name, sub: `сделать ${x.open} шт`, icon: "box", act: `data-a="item" data-id="${di.item.id}"` };
+    if (x.batch.due < t) late.push(row); else if (x.batch.due <= soonLimit) soon.push(row);
+  }));
+  Core.live(S.plans).forEach(p => {
+    const c = D.clientMap.get(p.clientId); if (!c) return;
+    const row = { date: p.date || "", title: `Оплата: ${c.name}`, sub: rub(p.amount), icon: "coins", money: true, act: `data-a="client" data-id="${c.id}"` };
+    if (p.date && p.date < t) late.push(row); else if (!p.date || p.date <= soonLimit) soon.push(row);
+  });
+  D.O.forEach(d => {
+    if (d.order.status !== "Готов" || d.order.status === Core.CANCELLED) return;
+    const c = D.clientMap.get(d.order.clientId);
+    soon.push({ date: d.order.date || "", title: `Выдать заказ №${d.order.no}`, sub: c ? c.name : "", icon: "doc", act: `data-a="order" data-id="${d.order.id}"` });
+  });
+  D.SH.forEach(x => {
+    const sh = x.show; if (sh.closed || !sh.dateFrom) return;
+    const row = { date: sh.dateFrom, title: `Выставка «${sh.name}»`, sub: sh.dateTo && sh.dateTo !== sh.dateFrom ? `по ${fdate(sh.dateTo)}` : "", icon: "bookmark", act: `data-a="show" data-id="${sh.id}"` };
+    if (sh.dateFrom <= soonLimit) (sh.dateFrom < t ? soon : soon).push(row);
+  });
+  D.DR.forEach(x => {
+    if (x.drop.closed || !x.waiting) return;
+    soon.push({ date: x.drop.due || "", title: `Дроп «${x.item ? x.item.name : ""}»`, sub: `${x.waiting} шт без заказа`, icon: "up", act: `data-a="drop" data-id="${x.drop.id}"` });
+  });
+  const sortRows = a => a.sort((p, q) => ((p.date || "9999") < (q.date || "9999") ? -1 : 1));
+  sortRows(late); sortRows(soon);
+  const row = r => `<button class="oprow" ${r.act}><span class="ico ${r.money ? "money" : ""}">${ic(r.icon)}</span><span class="l"><b>${esc(r.title)}</b><small>${r.date ? fdate(r.date) : "без даты"}${r.sub ? " · " + esc(r.sub) : ""}</small></span>${ic("chev", "chev")}</button>`;
+
+  return `
+    <p class="todaydate">${todayLabel()}</p>
+    <section class="bigmoney">
+      <span>Свободные деньги</span>
+      <b class="num ${B.free < 0 ? "v-red" : ""}">${rub(B.free)}</b>
+      <small>на счетах ${rub(B.cash)}${D.totals.advances ? ` · авансы клиентов −${rub(D.totals.advances)}` : ""}${B.taxReserve ? ` · налог −${rub(B.taxReserve)}` : ""}</small>
+    </section>
+    <section class="sumbar">
+      <div class="scells">
+        <button class="scell" data-a="goto" data-v="orders:debt"><b class="num money">${rub(debt)}</b><small>должны</small></button>
+        <button class="scell" data-a="goto" data-v="stock:planned"><b class="num">${toMake}</b><small>сделать</small></button>
+        <button class="scell" data-a="goto" data-v="stock:free"><b class="num">${freeReady}</b><small>готово</small></button>
+        <button class="scell" data-a="goto" data-v="budget:overview"><b class="num">${rub(B.month.profit)}</b><small>прибыль, месяц</small></button>
+      </div>
+    </section>
+    <section class="block"><h3>${ic("warn")}Просрочено</h3>
+      ${late.length ? late.slice(0, 8).map(row).join("") : `<p class="hint indent">Ничего не просрочено.</p>`}
+    </section>
+    <section class="block"><h3>${ic("cal")}Ближайшие 7 дней</h3>
+      ${soon.length ? soon.slice(0, 10).map(row).join("") : `<p class="hint indent">Дел на неделю не запланировано.</p>`}
+    </section>
+    <div class="btns g3" style="margin-bottom:10px">
+      <button class="btn" data-a="bulk-ready">${ic("checkc")}Готовые</button>
+      <button class="btn" data-a="order-form">${ic("docplus")}Заказ</button>
+      <button class="btn" data-a="op-form" data-v="Расход">${ic("down")}Расход</button>
+    </div>`;
+}
+
 /* ===================== СКЛАД ===================== */
-const BUCKETS = [["all", "Все"], ["planned", "Тираж"], ["free", "Готово"], ["reserved", "Резерв"], ["sold", "Продано"], ["overdue", "Срок прошёл"], ["shortage", "Не хватает"]];
+const BUCKETS = [["all", "Все"], ["planned", "Тираж"], ["free", "Готово"], ["reserved", "Резерв"]];
 function bucketVal(di, b) {
-  return { planned: di.planned, free: Math.max(0, di.free), reserved: di.reserved, sold: di.sold, shortage: di.shortage, overdue: di.overdue ? 1 : 0 }[b];
+  return { planned: di.planned, free: Math.max(0, di.free), reserved: di.reserved, sold: di.sold, shortage: di.shortage, atshow: di.atShow, overdue: di.overdue ? 1 : 0 }[b];
 }
 const pctText = (margin, price) => Core.num(price) > 0 ? ` (${Math.round(margin / Core.num(price) * 100)}%)` : "";
-function ingot(di) {
+function ingot(di, thin) {
   const v = { p: di.planned, f: Math.max(0, di.free), r: di.reserved, s: di.sold };
   const sum = Object.values(v).reduce((a, b) => a + b, 0);
-  return `<div class="ingot" aria-hidden="true">${sum ? Object.entries(v).filter(([, n]) => n > 0).map(([k, n]) => `<i class="${k}" style="flex:${n}"></i>`).join("") : ""}</div>`;
+  return `<div class="ingot${thin ? " thin" : ""}" aria-hidden="true">${sum ? Object.entries(v).filter(([, n]) => n > 0).map(([k, n]) => `<i class="${k}" style="flex:${n}"></i>`).join("") : ""}</div>`;
 }
 function renderStock() {
-  let tp = 0, tf = 0, tr = 0, ts = 0, late = 0;
-  D.I.forEach(di => { tp += di.planned; tf += Math.max(0, di.free); tr += di.reserved; ts += di.shortage; if (di.overdue) late++; });
+  let tp = 0, tf = 0, tr = 0, ts = 0, late = 0, tshow = 0;
+  D.I.forEach(di => { tp += di.planned; tf += Math.max(0, di.free); tr += di.reserved; ts += di.shortage; tshow += di.atShow; if (di.overdue) late++; });
+  const cell = (v, l, f, cls = "") => `<button class="scell ${cls}" data-a="stock-filter" data-v="${f}" aria-pressed="${view.stockFilter === f}"><b class="num">${v}</b><small>${l}</small></button>`;
+  const alerts = [];
+  if (ts) alerts.push(`<button class="pill sm red" data-a="stock-filter" data-v="shortage">${ic("warn")}не хватает ${ts}</button>`);
+  if (late) alerts.push(`<button class="pill sm red" data-a="stock-filter" data-v="overdue">${ic("cal")}срок прошёл: ${late}</button>`);
+  if (tshow) alerts.push(`<button class="pill sm orange" data-a="stock-filter" data-v="atshow">${ic("bookmark")}на выставках ${tshow}</button>`);
+  const extra = view.stockFilter === "sold" ? ["sold", "Продано"] : view.stockFilter === "shortage" ? ["shortage", "Не хватает"] : view.stockFilter === "overdue" ? ["overdue", "Срок прошёл"] : view.stockFilter === "atshow" ? ["atshow", "На выставках"] : null;
   return `
-    <div class="stats">
-      ${stat(rub(D.totals.stockValue), `свободные готовые по цене, ${pcs(tf)}`, "coins", "v-money", 'data-a="stock-filter" data-v="free"', "money-ic")}
-      ${stat(pcs(tr), "в резерве под заказы", "bookmark", "v-teal", 'data-a="stock-filter" data-v="reserved"', "teal-ic")}
-      ${stat(pcs(tp), late ? "осталось сделать, есть просрочка" : "осталось сделать", "cal", late ? "v-red" : "v-rust", `data-a="stock-filter" data-v="${late ? "overdue" : "planned"}"`)}
-      ${stat(pcs(ts), "не хватает под заказы", "warn", ts ? "v-red" : "", 'data-a="stock-filter" data-v="shortage"')}
-    </div>
-    <div class="seg" role="group" aria-label="Фильтр">${BUCKETS.map(([k, l]) => `<button data-a="stock-filter" data-v="${k}" aria-pressed="${view.stockFilter === k}">${l}</button>`).join("")}</div>
-    ${searchBox("q-stock", "q", "Поиск: название, серия, материал")}
+    <section class="sumbar">
+      <div class="scells">
+        ${cell(tf, "готово", "free")}
+        ${cell(tr, "резерв", "reserved")}
+        ${cell(tp, "сделать", "planned")}
+        <span class="scell money"><b class="num">${rub(D.totals.stockValue)}</b><small>готовые по цене</small></span>
+      </div>
+      ${alerts.length ? `<div class="flags">${alerts.join("")}</div>` : ""}
+    </section>
+    <div class="seg" role="group" aria-label="Фильтр">${[...BUCKETS, ...(extra ? [extra] : [])].map(([k, l]) => `<button data-a="stock-filter" data-v="${k}" aria-pressed="${view.stockFilter === k}">${l}</button>`).join("")}</div>
+    <div class="searchrow">${searchBox("q-stock", "q", "Поиск: название, серия")}<button class="btn iconbtn" data-a="bulk-ready" aria-label="Отметить готовые">${ic("checkc")}</button></div>
     <div class="list" id="list-q">${stockList()}</div>`;
 }
 function stockList() {
@@ -1339,35 +1644,29 @@ function stockList() {
           <span class="l"><b>${k ? esc(k) : "Без серии"}</b><small>${g.length} ${plural(g.length, "модель", "модели", "моделей")} · сделать ${make} · готово ${free}${res ? ` · резерв ${res}` : ""}</small></span>
           <span class="num money">${rub(sum)}</span>${ic("chev", open ? "chev open" : "chev")}
         </button>
-        ${open ? `<div class="list">${g.map(di => stockCard(di, true)).join("")}</div>` : ""}
+        ${open ? `<div class="list">${g.map(stockCard).join("")}</div>` : ""}
       </section>`;
     }).join("");
   }
-  if (!S.items.some(i => !i.deleted)) return `<div class="empty">Склад пуст. Добавьте первое изделие: количество, срок и стоимость вводятся сразу.<br><button class="btn primary" data-a="item-form">${ic("plus")}Добавить изделие</button></div>`;
+  if (!S.items.some(i => !i.deleted)) return `<div class="empty">Склад пуст. Нажмите «Изделие» внизу справа — количество, срок и стоимость вводятся сразу.</div>`;
   return `<div class="empty">Под этот фильтр ничего не подходит.</div>`;
 }
 function counts(di) {
   const c = [["p", di.planned, "сделать"], ["f", Math.max(0, di.free), "готово"], ["r", di.reserved, "резерв"], ["s", di.sold, "продано"]];
-  return `<div class="counts">${c.map(([k, n, l]) => `<div><b class="num"><i class="dot d-${k}"></i>${n}</b><small>${l}</small></div>`).join("")}</div>`;
+  return `<span class="mcounts">${c.map(([k, n, l]) => `<span><i class="dot d-${k}"></i>${l} <b class="num">${n}</b></span>`).join("")}</span>`;
 }
-function stockCard(di, inGroup) {
+function stockCard(di) {
   const i = di.item;
-  const meta = [inGroup === true ? "" : i.series, i.material, i.coating].filter(Boolean).map(esc).join(", ");
   const flags = [];
-  if (di.nextDue) flags.push(`<span class="pill ${di.overdue ? "red" : "blue"}">${ic(di.overdue ? "warn" : "cal")}${di.overdue ? "срок прошёл" : "срок"} ${fdate(di.nextDue)}</span>`);
-  if (di.shortage) flags.push(`<span class="pill red">${ic("warn")}не хватает ${di.shortage} шт</span>`);
-  if (di.atShow) flags.push(`<span class="pill orange">${ic("bookmark")}на выставке ${di.atShow} шт</span>`);
-  if (di.free < 0) flags.push(`<span class="pill red">${ic("warn")}на руках меньше, чем в резерве и на выставках</span>`);
-  return `<button class="card noimg" data-a="item" data-id="${i.id}">
-    <span class="body">
-      <span class="row"><span class="name">${esc(i.name)}</span><span class="side"><small>маржа за шт</small><b class="num">${rub(di.margin)}</b></span></span>
-      <span class="price" style="display:block">${rub(i.price)} <small class="per">за шт</small></span>
-      <span class="meta" style="display:block">${meta || "&nbsp;"}</span>
-      ${ingot(di)}
-      ${counts(di)}
-      ${di.totalQty ? `<span class="totline"><span>Всего ${pcs(di.totalQty)} по цене</span><b class="num">${rub(di.totalQty * Core.num(i.price))}</b></span>` : ""}
-      ${flags.length ? `<span class="flags">${flags.join("")}</span>` : ""}
-    </span>
+  if (di.nextDue) flags.push(`<span class="pill sm ${di.overdue ? "red" : "blue"}">${ic(di.overdue ? "warn" : "cal")}${di.overdue ? "срок прошёл" : "срок"} ${fdate(di.nextDue)}</span>`);
+  if (di.shortage) flags.push(`<span class="pill sm red">${ic("warn")}не хватает ${di.shortage}</span>`);
+  if (di.atShow) flags.push(`<span class="pill sm orange">${ic("bookmark")}на выставке ${di.atShow}</span>`);
+  if (di.free < 0) flags.push(`<span class="pill sm red">${ic("warn")}на руках меньше, чем в резерве</span>`);
+  return `<button class="card compact" data-a="item" data-id="${i.id}">
+    <span class="crow"><span class="cname">${esc(i.name)}</span><span class="cprice num">${rub(i.price)}<small>/шт</small></span></span>
+    ${ingot(di, true)}
+    <span class="crow sub">${counts(di)}${di.totalQty ? `<span class="ctot">${di.totalQty} шт = <b class="num">${rub(di.totalQty * Core.num(i.price))}</b></span>` : ""}</span>
+    ${flags.length ? `<span class="flags">${flags.join("")}</span>` : ""}
   </button>`;
 }
 function subscribersOf(item) {
@@ -1434,6 +1733,7 @@ function itemSheet(id) {
             <div><span>Всего (сделать + на руках)</span><b class="num">${di.totalQty}</b></div>
           </div>
         </div>
+        ${i.madeAt ? `<div class="kv sep"><span>Изготовлено</span><span>${fdate(i.madeAt)} · на складе ${ageText(i.madeAt)}</span></div>` : ""}
         <div class="btns"><button class="btn primary" data-a="ready" data-id="${id}">${ic("checkc")}Готово: добавить на склад</button></div>
       </section>
       <section class="block"><h3>${ic("cal")}Тиражи и сроки</h3>
@@ -1451,13 +1751,20 @@ function itemSheet(id) {
       </section>
       <section class="block"><h3>${ic("users")}Кто заказывал</h3>
         ${clientRows.length ? clientRows.map(r => `<button class="rowlink" data-a="client" data-id="${r.client.id}"><span class="l"><b>${esc(r.client.name)}</b><small>${r.bought ? `куплено ${r.bought} шт на ${rub(r.sum)}` : "покупок нет"}${r.pending ? ` · в работе ${r.pending} шт` : ""}${r.last ? ` · последний ${fdate(r.last)}` : ""}</small></span>${ic("chev", "chev")}</button>`).join("") : `<p class="hint indent">Это изделие ещё никто не заказывал.</p>`}
-        ${clientRows.length ? `<p class="hint">Всего покупателей: ${clientRows.length}. Продажи на выставках без указания покупателя записаны на клиента «Покупатели на выставках».</p>` : ""}
+        ${clientRows.length ? `<p class="hint">Всего покупателей: ${clientRows.length}. Продажи с выставок собраны одной строкой «Продажи на выставках».</p>` : ""}
       </section>
-      <section class="block"><h3>${ic("bell")}Подписчики</h3>
-        ${subs.length ? subs.map(c => `<div class="rowlink plain"><button class="l plainbtn" data-a="client" data-id="${c.id}">${esc(c.name)}</button>${telLink(c.phone)}</div>`).join("") : `<p class="hint indent">Никто не подписан на это изделие или его серию.</p>`}
+      ${(() => {
+        const ds = [...D.DR.values()].filter(x => x.drop.itemId === id && !x.drop.closed);
+        return `<section class="block"><h3>${ic("up")}Дроп</h3>${ds.length ? ds.map(x => `<button class="rowlink" data-a="drop" data-id="${x.drop.id}"><span class="l"><b>${esc(x.drop.stage || "Дроп")}</b><small>${x.people} ${plural(x.people, "запись", "записи", "записей")} · ${pcs(x.qty)}${x.waiting ? ` · без заказа ${x.waiting}` : ""}</small></span>${ic("chev", "chev")}</button>`).join("") : `<p class="hint indent">Активного дропа нет.</p>`}
+          <div class="btns"><button class="btn" data-a="drop-form" data-item="${id}">${ic("plus")}${ds.length ? "Ещё дроп" : "Создать дроп по этому изделию"}</button></div></section>`;
+      })()}
+      <section class="block"><h3>${ic("bell")}Предзаказ: кто ждёт</h3>
+        ${subs.map(c => { const own = Core.live(S.subs).find(s => s.clientId === c.id && s.kind === "изделие" && s.ref === id);
+          return `<div class="rowlink plain"><button class="l plainbtn" data-a="client" data-id="${c.id}">${esc(c.name)}<small>${own ? "ждёт это изделие" : `по серии «${esc(i.series)}»`}</small></button>${telLink(c.phone)}${own ? `<button class="btn textred" data-a="sub-del" data-id="${own.id}" aria-label="Убрать из предзаказа">${ic("trash")}</button>` : ""}</div>`; }).join("") || `<p class="hint indent">Пока никто не записан.</p>`}
+        <div class="btns g2"><button class="btn" data-a="sub-add" data-id="${id}">${ic("plus")}Записать в предзаказ</button>${subs.length ? `<button class="btn" data-a="copy-ready" data-id="${id}">${ic("doc")}Текст «готово»</button>` : ""}</div>
       </section>
       ${i.note ? `<section class="block"><h3>Заметка</h3><p style="margin:0;white-space:pre-wrap">${esc(i.note)}</p></section>` : ""}
-      <div class="btns g2 bottom"><button class="btn outline" data-a="item-form" data-id="${id}">${ic("pencil")}Изменить</button><button class="btn danger" data-a="item-del" data-id="${id}">${ic("trash")}Удалить</button></div>` };
+      <div class="btns g3 bottom"><button class="btn outline" data-a="item-form" data-id="${id}">${ic("pencil")}Изменить</button><button class="btn" data-a="item-copy" data-id="${id}">${ic("doc")}Дубликат</button><button class="btn danger" data-a="item-del" data-id="${id}">${ic("trash")}Удалить</button></div>` };
   };
 }
 function itemForm(id) {
@@ -1481,11 +1788,13 @@ function itemForm(id) {
       <section class="block"><h3>${ic("box")}Количество</h3>
         ${id ? `
           ${fld("Готовых на руках (свободные + в резерве), шт", "onHand", onHand, "number", 'min="0" step="1" inputmode="numeric"')}
+          ${fld("Дата изготовления", "madeAt", i.madeAt || "", "date")}
           <p class="hint">Сейчас в резерве ${di.reserved}, осталось сделать по тиражам ${di.planned}. Тиражи и сроки меняются в карточке изделия, блок «Тиражи и сроки».</p>`
         : `
           ${fld("Тираж, шт", "planQty", "", "number", 'min="0" step="1" inputmode="numeric"')}
           ${fld("Из них уже готово, шт", "onHand", "", "number", 'min="0" step="1" inputmode="numeric"')}
           ${fld("Срок готовности", "due", "", "date")}
+          ${fld("Дата изготовления готовых", "madeAt", Core.today(), "date")}
           <p class="hint">Пример: тираж 20, готово 3 — на складе 3 шт, осталось сделать 17. Если тиража нет, а изделия уже есть — оставьте первое поле пустым.</p>`}
       </section>
       <section class="block"><h3>${ic("coins")}Стоимость за 1 шт</h3>
@@ -1521,6 +1830,7 @@ function itemForm(id) {
           const hand = Math.max(0, Math.round(Core.num(v.onHand)));
           const rec = id ? find("items", id) : { id: Core.uid(), readyTotal: 0 };
           Object.assign(rec, { name: v.name, series: v.series, material: v.material, coating: v.coating, matCost: Core.num(v.matCost), consCost: Core.num(v.consCost), price: Core.num(v.price), note: v.note });
+          if (v.madeAt !== undefined) rec.madeAt = hand ? v.madeAt : (v.madeAt || "");
           const parts = [];
           if (id) {
             const was = Math.max(0, di.onHand);
@@ -1561,7 +1871,7 @@ function batchForm(itemId, batchId) {
         const form = $("#f-batch", l);
         const del = $("#b-del", l);
         if (del) del.onclick = () => confirmSheet("Удалить тираж?", `${b.qty - Core.num(b.done)} шт «${esc(it.name)}»${b.due ? ", срок " + fdate(b.due) : ""}. Готовые изделия на складе не изменятся.`, "Удалить", () => {
-          b.deleted = true; touch(b); log("Изделие", itemId, `«${it.name}»: удалён тираж ${b.qty} шт`); sheets.pop(); commit();
+          b.deleted = true; touch(b); log("Изделие", itemId, `«${it.name}»: удалён тираж ${b.qty} шт`); sheets.pop(); commit("Тираж удалён");
         }, true);
         form.onsubmit = e => {
           e.preventDefault(); const v = formData(form);
@@ -1594,7 +1904,7 @@ function readySheet(id) {
           if (q < 1) { $("#f-err", l).textContent = "Количество должно быть больше нуля."; return; }
           let left = (v.fromPlan || []).length ? q : 0, closed = 0;
           di.batches.forEach(x => { if (left <= 0 || x.open <= 0) return; const take = Math.min(left, x.open); x.batch.done = Core.num(x.batch.done) + take; touch(x.batch); left -= take; closed += take; });
-          i.readyTotal = Core.num(i.readyTotal) + q; touch(i);
+          i.readyTotal = Core.num(i.readyTotal) + q; i.madeAt = Core.today(); touch(i);
           log("Изделие", i.id, `«${i.name}»: ${q} шт готово${closed ? `, засчитано в тираж ${closed}` : ""}`);
           sheets.pop();
           commit();
@@ -1604,13 +1914,45 @@ function readySheet(id) {
       } };
   };
 }
+function bulkReadySheet() {
+  return () => {
+    const list = [...D.I.values()].sort((a, b) => (b.planned - a.planned) || a.item.name.localeCompare(b.item.name, "ru"));
+    if (!list.length) return { title: "Отметить готовые", key: "bulk", html: `<div class="empty">Сначала добавьте изделия.</div>` };
+    return { title: "Отметить готовые", key: "bulk", html: `<form id="f-bulk">
+      <p class="hint">Впишите, сколько штук готово. Они лягут на склад и закроются по тиражам, начиная с ближайшего срока.</p>
+      <section class="block">
+        ${list.map(di => `<div class="bulkrow"><span class="l"><b>${esc(di.item.name)}</b><small>${di.planned ? `осталось сделать ${di.planned}` : "тиража нет"} · готово ${Math.max(0, di.free)}</small></span>
+          <input class="bqty" name="q_${di.item.id}" type="number" inputmode="numeric" min="0" step="1" placeholder="0" aria-label="${esc(di.item.name)}, сколько готово"></div>`).join("")}
+      </section>
+      <div id="f-err" class="err"></div>${formBtns("Добавить на склад")}</form>`,
+      after: l => {
+        $("#f-bulk", l).onsubmit = e => {
+          e.preventDefault(); const v = formData(e.target);
+          const picks = [];
+          list.forEach(di => { const q = Math.round(Core.num(v["q_" + di.item.id])); if (q > 0) picks.push([di, q]); });
+          if (!picks.length) { $("#f-err", l).textContent = "Впишите количество хотя бы у одного изделия."; return; }
+          const parts = [];
+          picks.forEach(([di, q]) => {
+            let left = q, closed = 0;
+            di.batches.forEach(x => { if (left <= 0 || x.open <= 0) return; const take = Math.min(left, x.open); x.batch.done = Core.num(x.batch.done) + take; touch(x.batch); left -= take; closed += take; });
+            di.item.readyTotal = Core.num(di.item.readyTotal) + q; di.item.madeAt = Core.today(); touch(di.item);
+            parts.push(`${di.item.name} +${q}${closed ? ` (в тираж ${closed})` : ""}`);
+          });
+          log("Изделие", "", `Отмечено готовыми: ${parts.join(", ")}`);
+          sheets.pop(); commit();
+          const notify = picks.map(([di]) => D.I.get(di.item.id)).filter(di => di && di.free > 0 && subscribersOf(di.item).length);
+          if (notify.length) openSheet(notifySheet(notify[0].item.id));
+        };
+      } };
+  };
+}
 function notifySheet(id) {
   return () => {
     const i = find("items", id); if (!i) return null;
     const subs = subscribersOf(i);
     return { title: "Кого уведомить", key: "notify" + id, html: `<p class="hint">«${esc(i.name)}» появилось в свободных готовых. Подписаны на изделие или серию «${esc(i.series || "—")}»:</p>
-      <section class="block">${subs.map(c => `<div class="rowlink plain"><span class="l"><b>${esc(c.name)}</b><small>${esc(c.pickup || "")}</small></span>${c.phone ? telLink(c.phone) : `<span class="pill round">нет телефона</span>`}</div>`).join("")}</section>
-      <div class="btns"><button class="btn primary" data-a="close">Понятно</button></div>` };
+      <section class="block">${subs.map(c => `<div class="rowlink plain"><span class="l"><b>${esc(c.name)}</b><small>${esc(c.pickup || "")}</small></span>${c.phone ? telLink(c.phone) : ""}</div>`).join("")}</section>
+      <div class="btns g2"><button class="btn" data-a="copy-ready" data-id="${id}">${ic("doc")}Скопировать текст</button><button class="btn primary" data-a="close">Понятно</button></div>` };
   };
 }
 
@@ -1624,17 +1966,7 @@ function calendarEvents(ym) {
   Core.live(S.plans).forEach(p => {
     if (p.date && p.date.slice(0, 7) === ym) { const c = D.clientMap.get(p.clientId); ev.push({ date: p.date, kind: "money", title: `Ожидается оплата: ${c ? c.name : ""}`, sub: rub(p.amount), late: p.date < t, act: `data-a="client" data-id="${p.clientId}"` }); }
   });
-  const B = Core.budget(S, D, ym);
-  const [y, m] = ym.split("-").map(Number);
-  B.L.forEach(x => {
-    const l = x.loan, day = Math.round(Core.num(l.payDay));
-    x.payments.forEach(op => { if ((op.date || "").slice(0, 7) === ym) ev.push({ date: op.date, kind: "loan", title: `Платёж внесён: ${l.name}`, sub: rub(op.amount), late: false, act: `data-a="loan" data-id="${l.id}"` }); });
-    if (l.closed || x.balance <= 0 || day < 1) return;
-    const due = `${ym}-${String(Math.min(day, new Date(y, m, 0).getDate())).padStart(2, "0")}`;
-    const paidThisMonth = x.payments.some(op => (op.date || "").slice(0, 7) === ym);
-    if (ym >= t.slice(0, 7) && !paidThisMonth) ev.push({ date: due, kind: "loan", title: `Платёж по кредиту: ${l.name}`, sub: rub(l.monthly), late: due < t, act: `data-a="loan" data-id="${l.id}"` });
-  });
-  D.SH.forEach(x => { const sh = x.show; if (sh.dateFrom && sh.dateFrom.slice(0, 7) === ym) ev.push({ date: sh.dateFrom, kind: "show", title: `Выставка: ${sh.name}`, sub: [showDates(sh), sh.place].filter(Boolean).join(" · ") || "выставка", late: false, act: `data-a="show" data-id="${sh.id}"` }); });
+  D.SH.forEach(x => { const sh = x.show; if (sh.dateFrom && sh.dateFrom.slice(0, 7) === ym) ev.push({ date: sh.dateFrom, kind: "show", title: `Выставка: ${sh.name}`, sub: showDates(sh) || "выставка", late: false, act: `data-a="show" data-id="${sh.id}"` }); });
   return ev.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
 }
 function calendarSheet() {
@@ -1660,7 +1992,7 @@ function calendarSheet() {
       <section class="block cal">
         <div class="wd">${["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"].map(x => `<span>${x}</span>`).join("")}</div>
         <div class="grid">${cells.join("")}</div>
-        <div class="legend-cal"><span><i class="k-plan"></i>срок изделия</span><span><i class="k-late"></i>срок прошёл</span><span><i class="k-money"></i>оплата клиента</span><span><i class="k-loan"></i>кредит</span></div>
+        <div class="legend-cal"><span><i class="k-plan"></i>срок изделия</span><span><i class="k-late"></i>срок прошёл</span><span><i class="k-money"></i>оплата клиента</span><span><i class="k-loan"></i>выставка</span></div>
       </section>
       <p class="sect-title">${selDay ? fdate(selDay) : "Все события месяца"}${selDay ? ` <button class="btn small" id="cal-all" style="margin-left:8px">Весь месяц</button>` : ""}</p>
       <div class="list">${list.map(e => `<button class="oprow" ${e.act}><span class="ico ${e.kind === "plan" ? "" : "money"}">${ic(e.kind === "plan" ? "box" : e.kind === "loan" ? "bank" : "coins")}</span><span class="l"><b>${esc(e.title)}</b><small ${e.late ? 'style="color:var(--red)"' : ""}>${fdate(e.date)}${e.late ? ", просрочено" : ""} · ${esc(e.sub)}</small></span>${ic("chev", "chev")}</button>`).join("") || `<div class="empty">${selDay ? "В этот день событий нет." : "В этом месяце событий нет."}</div>`}</div>`,
@@ -1678,6 +2010,11 @@ const OFILTERS = [["active", "Активные"], ["short", "Не хватает
 const STATUS_PILL = { "Новый": "blue", "В работе": "orange", "Готов": "green", "Отправлен": "blue", "Получен": "", "Отменён": "red" };
 function orderDone(d) { return d.order.recognizedAt && d.order.status === "Получен"; }
 function renderOrders() {
+  const modes = `<div class="seg modes" role="group" aria-label="Режим">${[["orders", "Заказы"], ["drops", "Дропы"]].map(([k, l]) => `<button data-a="omode" data-v="${k}" aria-pressed="${view.omode === k}">${l}</button>`).join("")}</div>`;
+  if (view.omode === "drops") return modes + renderDrops();
+  return modes + renderOrdersList();
+}
+function renderOrdersList() {
   let expected = 0, overdue = 0; const t = Core.today();
   Core.live(S.plans).forEach(p => { expected += Core.num(p.amount); if (p.date && p.date < t) overdue += Core.num(p.amount); });
   const month = new Date().toLocaleString("ru-RU", { month: "long" });
@@ -1710,7 +2047,7 @@ function orderList() {
   });
   list.sort((a, b) => b.order.no - a.order.no);
   if (list.length) return list.map(orderCard).join("");
-  if (!S.orders.some(o => !o.deleted)) return `<div class="empty">Заказов пока нет. Заказ связывает клиента, изделия и оплаты.<br><button class="btn primary" data-a="order-form">${ic("plus")}Создать заказ</button></div>`;
+  if (!S.orders.some(o => !o.deleted)) return `<div class="empty">Заказов пока нет. Заказ связывает клиента, изделия и оплаты — нажмите «Заказ» внизу справа.</div>`;
   return `<div class="empty">Под этот фильтр заказов нет.</div>`;
 }
 function orderFlags(d) {
@@ -1726,12 +2063,14 @@ function orderFlags(d) {
 }
 function orderCard(d) {
   const o = d.order, c = D.clientMap.get(o.clientId);
+  const cancelled = o.status === Core.CANCELLED;
   const names = d.lines.map(x => { const it = D.itemMap.get(x.line.itemId); return (it ? it.name : "?") + (x.line.qty > 1 ? " ×" + x.line.qty : ""); }).join(", ");
   return `<button class="card noimg" data-a="order" data-id="${o.id}">
     <span class="body">
       <span class="row"><span class="name">№${o.no}&nbsp;&nbsp;${esc(c ? c.name : "клиент удалён")}</span><span class="pill round ${STATUS_PILL[o.status] || ""}">${esc(o.status)}</span></span>
       <span class="row"><span><span class="price" style="display:block">${rub(d.total)}</span><span class="meta" style="display:block">${esc(names)}</span></span>
         <span class="meta" style="display:inline-flex;align-items:center;gap:6px;margin-top:8px">${ic("cal")}${fdate(o.date)}</span></span>
+      ${d.total > 0 && !cancelled ? `<span class="paybar" aria-hidden="true"><i style="width:${Math.max(0, Math.min(100, d.paid / d.total * 100))}%"></i></span>` : ""}
       <span class="flags">${orderFlags(d)}</span>
     </span>
   </button>`;
@@ -1775,13 +2114,15 @@ function orderSheet(id) {
       <section class="block"><h3>${ic("coins")}Деньги</h3>
         <div class="indent">
           <div class="kv"><span>Сумма</span><span class="num">${rub(d.gross)}</span></div>
-          ${d.discountAmt ? `<div class="kv"><span>Скидка ${nf.format(Core.num(o.discount))}%</span><span class="num">− ${rub(d.discountAmt)}</span></div>` : ""}
+          ${d.discountAmt ? `<div class="kv"><span>Скидка${Core.num(o.discountSum) > 0 ? "" : ` ${nf.format(Core.num(o.discount))}%`}</span><span class="num">− ${rub(d.discountAmt)}</span></div>` : ""}
           <div class="kv strong sep"><span>Итого</span><span class="num">${rub(d.total)}</span></div>
           <div class="kv"><span>Оплачено</span><span class="num">${rub(d.paid)}</span></div>
           ${rest > 0.005 ? `<div class="kv accent"><span>Осталось оплатить</span><span class="num">${rub(rest)}</span></div>` : rest < -0.005 ? `<div class="kv accent"><span style="color:var(--red)">Переплата</span><span class="num" style="color:var(--red)">${rub(-rest)}</span></div>` : `<div class="kv"><span>Осталось оплатить</span><span class="num">0 ₽</span></div>`}
-          <div class="kv sep"><span>Маржа ${o.recognizedAt ? `(себестоимость на ${fdate(o.recognizedAt)})` : "(по текущей себестоимости)"}</span><span class="num">${rub(d.margin)}</span></div>
+          ${d.extraCost ? `<div class="kv"><span>Доставка (расход)</span><span class="num">− ${rub(d.extraCost)}</span></div>` : ""}
+        <div class="kv sep"><span>Маржа ${o.recognizedAt ? `(себестоимость на ${fdate(o.recognizedAt)})` : "(по текущей себестоимости)"}${d.extraCost ? ", за вычетом доставки" : ""}</span><span class="num">${rub(d.margin)}</span></div>
         </div>
         <div class="btns g2"><button class="btn primary" data-a="pay-form" data-client="${o.clientId}" data-order="${id}">${ic("card")}Внести оплату</button><button class="btn" data-a="plan-form" data-client="${o.clientId}" data-order="${id}">${ic("calcheck")}Ожидаемая оплата</button></div>
+        <div class="btns g2"><button class="btn" data-a="copy-order" data-id="${id}">${ic("doc")}Текст клиенту</button>${!cancelled && d.lines.length ? `<button class="btn" data-a="order-return" data-id="${id}">${ic("left")}Возврат</button>` : ""}</div>
       </section>
       <section class="block"><h3>${ic("doc")}Оплаты</h3>${pays.length ? pays.map(payRow).join("") : `<p class="hint indent">Оплат нет.</p>`}</section>
       <section class="block"><h3>${ic("clock")}Ожидаемые оплаты</h3>${plans.length ? plans.map(planRow).join("") : `<p class="hint indent">Нет.</p>`}</section>
@@ -1810,15 +2151,16 @@ function orderForm(id, presetClient) {
   return () => {
     const o = id ? find("orders", id) : null;
     if (id && !o) return null;
-    const clients = Core.live(S.clients).sort((a, b) => a.name.localeCompare(b.name, "ru"));
+    const clients = Core.live(S.clients).filter(c => c.system !== "show" || c.id === (o && o.clientId)).sort((a, b) => a.name.localeCompare(b.name, "ru"));
     const items = Core.live(S.items).sort((a, b) => a.name.localeCompare(b.name, "ru"));
     if (!clients.length) return { title: "Новый заказ", key: "orderform-empty", html: `<div class="empty">Сначала добавьте клиента — заказ всегда привязан к нему.<br><button class="btn primary" data-a="client-form">${ic("plus")}Добавить клиента</button></div>` };
     if (!items.length) return { title: "Новый заказ", key: "orderform-empty2", html: `<div class="empty">Сначала добавьте изделие на склад.<br><button class="btn primary" data-a="item-form">${ic("plus")}Добавить изделие</button></div>` };
     if (!draft) {
       const c0 = presetClient ? find("clients", presetClient) : null;
-      draft = o ? { clientId: o.clientId, date: o.date, status: o.status, discount: o.discount, pickup: o.pickup, note: o.note,
+      const shipOp = o ? Core.live(S.ops).find(x => x.orderId === o.id && x.kind === "Расход") : null;
+      draft = o ? { clientId: o.clientId, date: o.date, status: o.status, discount: o.discount, discountSum: o.discountSum || "", pickup: o.pickup, note: o.note, shipping: shipOp ? shipOp.amount : "", shipAccount: shipOp ? shipOp.accountId : "",
           lines: Core.live(S.lines).filter(l => l.orderId === id).map(l => ({ id: l.id, itemId: l.itemId, qty: l.qty, price: l.price })) }
-        : { clientId: c0 ? c0.id : "", date: Core.today(), status: "Новый", discount: c0 ? c0.discount : 0, pickup: c0 ? c0.pickup : "", note: "", lines: [{ itemId: "", qty: 1, price: "" }] };
+        : { clientId: c0 ? c0.id : "", date: Core.today(), status: "Новый", discount: c0 ? c0.discount : 0, discountSum: "", pickup: c0 ? c0.pickup : "", note: "", shipping: "", shipAccount: "", lines: [{ itemId: "", qty: 1, price: "" }] };
     }
     const statuses = o ? Core.STATUSES : Core.STATUSES.filter(x => x !== Core.CANCELLED);
     return { title: id ? `Изменить заказ №${o.no}` : "Новый заказ", key: "orderform" + (id || "new"), html: `<form id="f-order">
@@ -1837,7 +2179,10 @@ function orderForm(id, presetClient) {
       <div class="btns"><button type="button" class="btn" data-a="line-add">${ic("plus")}Добавить изделие</button></div>
       </section>
       <section class="block">
-      ${fld("Скидка, %", "discount", draft.discount, "number")}
+      <div class="grid2">${fld("Скидка, %", "discount", draft.discount, "number")}${fld("или скидка, ₽", "discountSum", draft.discountSum, "number")}</div>
+      <p class="hint">Если заполнить скидку в рублях, процент не применяется.</p>
+      ${fld("Доставка: сколько заплатил, ₽", "shipping", draft.shipping, "number")}
+      ${Core.live(S.accounts).length ? accountSelect("shipAccount", "Доставка оплачена со счёта", draft.shipAccount) : ""}
       ${fld("Пункт выдачи", "pickup", draft.pickup)}
       <label class="f">Заметка<textarea name="note">${esc(draft.note)}</textarea></label>
       <div class="kv accent sep"><span>Итого со скидкой</span><span class="num" id="o-total">—</span></div>
@@ -1848,7 +2193,7 @@ function orderForm(id, presetClient) {
         const form = $("#f-order", l);
         const pull = () => {
           const v = formData(form);
-          draft.clientId = v.clientId; draft.date = v.date; draft.status = v.status; draft.discount = v.discount; draft.pickup = v.pickup; draft.note = v.note;
+          draft.clientId = v.clientId; draft.date = v.date; draft.status = v.status; draft.discount = v.discount; draft.discountSum = v.discountSum; draft.pickup = v.pickup; draft.note = v.note; draft.shipping = v.shipping; draft.shipAccount = v.shipAccount;
           draft.lines = draft.lines.map((x, n) => ({ id: x.id, itemId: v["l_item_" + n], qty: v["l_qty_" + n], price: v["l_price_" + n] }));
           return v;
         };
@@ -1882,7 +2227,7 @@ function orderForm(id, presetClient) {
           if (!good.length) { err.textContent = "Добавьте хотя бы одно изделие с количеством больше нуля."; return; }
           let rec = o;
           if (!rec) { rec = { id: Core.uid(), no: S.settings.nextOrderNo++, recognizedAt: "" }; S.orders.push(rec); }
-          Object.assign(rec, { clientId: draft.clientId, date: draft.date || Core.today(), status: draft.status || "Новый", discount: Core.num(draft.discount), pickup: draft.pickup, note: draft.note });
+          Object.assign(rec, { clientId: draft.clientId, date: draft.date || Core.today(), status: draft.status || "Новый", discount: Core.num(draft.discount), discountSum: Core.round2(Core.num(draft.discountSum)), pickup: draft.pickup, note: draft.note });
           touch(rec);
           const keep = new Set();
           good.forEach(x => {
@@ -1892,6 +2237,13 @@ function orderForm(id, presetClient) {
             touch(line); keep.add(line.id);
           });
           S.lines.forEach(z => { if (z.orderId === rec.id && !z.deleted && !keep.has(z.id)) { z.deleted = true; touch(z); } });
+          const ship = Core.round2(Core.num(draft.shipping));
+          const prev = Core.live(S.ops).find(z => z.orderId === rec.id && z.kind === "Расход");
+          if (ship > 0) {
+            const accId = draft.shipAccount || (Core.live(S.accounts)[0] || {}).id || "";
+            if (prev) { Object.assign(prev, { amount: ship, accountId: accId, date: rec.date }); touch(prev); }
+            else S.ops.push(touch({ id: Core.uid(), kind: "Расход", category: "Доставка", amount: ship, accountId: accId, date: rec.date, orderId: rec.id, note: `Доставка по заказу №${rec.no}` }));
+          } else if (prev) { prev.deleted = true; touch(prev); }
           const cl = find("clients", rec.clientId);
           log("Заказ", rec.id, `${o ? "Изменён" : "Создан"} заказ №${rec.no} (${cl ? cl.name : ""}): ${good.map(x => (find("items", x.itemId) || {}).name + " ×" + Math.round(Core.num(x.qty))).join(", ")}`);
           sheets.pop(); if (!o) sheets.push(orderSheet(rec.id));
@@ -1986,6 +2338,63 @@ function planForm(clientId, orderId) {
       } };
   };
 }
+function returnSheet(id) {
+  return () => {
+    const d = D.O.get(id); if (!d || !d.lines.length) return null;
+    const c = D.clientMap.get(d.order.clientId);
+    const k = d.gross > 0 ? d.total / d.gross : 1;
+    return { title: `Возврат по заказу №${d.order.no}`, key: "ret" + id, html: `<form id="f-ret">
+      <p class="hint">Впишите, сколько штук вернулось. Изделия вернутся на склад, а сумма по ценам заказа со скидкой — клиенту.</p>
+      <section class="block">
+        ${d.lines.map(x => { const it = D.itemMap.get(x.line.itemId);
+          return `<div class="bulkrow"><span class="l"><b>${esc(it ? it.name : "изделие")}</b><small class="num">в заказе ${x.line.qty} × ${rub(x.line.price)}</small></span>
+            <input class="bqty" name="q_${x.line.id}" type="number" inputmode="numeric" min="0" max="${x.line.qty}" step="1" placeholder="0" aria-label="Вернуть, шт"></div>`; }).join("")}
+        <div class="kv accent sep"><span>Сумма возврата</span><span class="num" id="ret-sum">0 ₽</span></div>
+      </section>
+      <section class="block">
+        <label class="check"><input type="checkbox" name="refund" value="1" ${d.paid > 0 ? "checked" : ""}> Вернуть деньги клиенту${c ? ` (${esc(c.name)})` : ""}</label>
+        ${accountSelect("accountId", "Со счёта")}
+        ${fld("Дата", "date", Core.today(), "date")}
+      </section>
+      <div id="f-err" class="err"></div>${formBtns("Оформить возврат")}</form>`,
+      after: l => {
+        const form = $("#f-ret", l);
+        const calc = () => {
+          const v = formData(form);
+          let sum = 0;
+          d.lines.forEach(x => { const q = Math.min(Math.max(0, Math.round(Core.num(v["q_" + x.line.id]))), x.line.qty); sum += q * Core.num(x.line.price) * k; });
+          $("#ret-sum", l).textContent = rub(sum);
+          return Core.round2(sum);
+        };
+        form.addEventListener("input", calc); calc();
+        form.onsubmit = e => {
+          e.preventDefault();
+          const v = formData(form);
+          const picks = [];
+          d.lines.forEach(x => { const q = Math.min(Math.max(0, Math.round(Core.num(v["q_" + x.line.id]))), x.line.qty); if (q > 0) picks.push([x, q]); });
+          if (!picks.length) { $("#f-err", l).textContent = "Укажите, сколько штук вернулось."; return; }
+          const sum = calc();
+          const o = find("orders", id);
+          const names = [];
+          picks.forEach(([x, q]) => {
+            const it = D.itemMap.get(x.line.itemId);
+            const line = S.lines.find(z => z.id === x.line.id);
+            names.push(`${it ? it.name : "изделие"} ×${q}`);
+            if (q >= Core.num(line.qty)) { line.deleted = true; } else { line.qty = Core.num(line.qty) - q; }
+            touch(line);
+          });
+          const rest = Core.live(S.lines).filter(z => z.orderId === id);
+          if ((v.refund || []).length && sum > 0) {
+            const pay = touch({ id: Core.uid(), clientId: o.clientId, orderId: id, date: v.date || Core.today(), kind: "Возврат", amount: sum, accountId: v.accountId, note: `Возврат по заказу №${o.no}` });
+            S.payments.push(pay);
+          }
+          if (!rest.length) { o.status = Core.CANCELLED; touch(o); }
+          log("Заказ", id, `Возврат по заказу №${o.no}: ${names.join(", ")} на ${rub(sum)}${(v.refund || []).length ? ", деньги возвращены" : ", деньги оставлены"}${!rest.length ? "; заказ отменён" : ""}`);
+          sheets.pop(); commit(`Оформлен возврат на ${rub(sum)}`);
+        };
+      } };
+  };
+}
 function cancelSheet(id) {
   return () => {
     const d = D.O.get(id); if (!d) return null;
@@ -2015,7 +2424,7 @@ function cancelSheet(id) {
           const dp = e.target.querySelector("input[name=dropPlans]");
           if (dp && dp.checked) plans.forEach(p => { p.deleted = true; touch(p); });
           log("Заказ", id, `Заказ №${o.no} отменён${radio ? (radio.value === "refund" ? ", деньги возвращены" : ", деньги оставлены") : ""}`);
-          sheets.pop(); commit();
+          sheets.pop(); commit(`Заказ №${o.no} отменён`);
         };
       } };
   };
@@ -2036,10 +2445,11 @@ function renderClients() {
 function clientList() {
   const all = [...D.C.values()];
   const q = view.cq.toLowerCase();
-  let list = q ? all.filter(dc => [dc.client.name, dc.client.phone, dc.client.pickup].join(" ").toLowerCase().includes(q)) : all;
+  let list = all.filter(dc => dc.client.system !== "show");
+  if (q) list = list.filter(dc => [dc.client.name, dc.client.phone, dc.client.pickup].join(" ").toLowerCase().includes(q));
   list.sort((a, b) => a.client.name.localeCompare(b.client.name, "ru"));
   if (list.length) return list.map(clientCard).join("");
-  return all.length ? `<div class="empty">Никого не нашлось.</div>` : `<div class="empty">Клиентов пока нет.<br><button class="btn primary" data-a="client-form">${ic("plus")}Добавить клиента</button></div>`;
+  return all.length ? `<div class="empty">Никого не нашлось.</div>` : `<div class="empty">Клиентов пока нет — нажмите «Клиент» внизу справа. Ещё клиента можно завести прямо при записи в дроп или предзаказ.</div>`;
 }
 function initials(name) { const w = String(name).split(/\s+/).filter(Boolean); return ((w[0] || "?")[0] + (w[1] ? w[1][0] : "")).toUpperCase(); }
 function clientCard(dc) {
@@ -2124,6 +2534,29 @@ function clientForm(id) {
       } };
   };
 }
+function subAddSheet(itemId) {
+  let cmode = Core.live(S.clients).filter(c => c.system !== "show").length ? "list" : "new";
+  return () => {
+    const it = find("items", itemId); if (!it) return null;
+    return { title: `Предзаказ: ${it.name}`, key: "subadd" + itemId, html: `<form id="f-subadd"><section class="block">
+      ${clientPicker(cmode, "Кто записывается *")}
+      <p class="hint">Когда изделие станет готовым, приложение покажет, кому написать, и даст готовый текст.</p>
+      </section><div id="f-err" class="err"></div>${formBtns("Записать")}</form>`,
+      after: l => {
+        const f = $("#f-subadd", l);
+        l.querySelectorAll("[data-cmode]").forEach(btn => (btn.onclick = e => { e.stopPropagation(); cmode = btn.dataset.cmode; renderSheet(); }));
+        f.onsubmit = e => {
+          e.preventDefault(); const v = formData(f);
+          const r = resolveClient(v);
+          if (r.error) { $("#f-err", l).textContent = r.error; return; }
+          if (Core.live(S.subs).some(s => s.kind === "изделие" && s.ref === itemId && s.clientId === r.client.id)) { $("#f-err", l).textContent = `${r.client.name} уже записан.`; return; }
+          S.subs.push(touch({ id: Core.uid(), clientId: r.client.id, kind: "изделие", ref: itemId }));
+          log("Клиент", r.client.id, `${r.client.name} записан в предзаказ на «${it.name}»`);
+          sheets.pop(); commit();
+        };
+      } };
+  };
+}
 function subsForm(id) {
   return () => {
     const c = find("clients", id); if (!c) return null;
@@ -2163,31 +2596,32 @@ const ymLabel = ym => { const [y, m] = ym.split("-").map(Number); return `${MONT
 function monthSwitch() {
   return `<div class="monthsw"><button class="btn small" data-a="ym" data-v="-1" aria-label="Предыдущий месяц">${ic("left")}</button><b>${ymLabel(view.ym)}</b><button class="btn small" data-a="ym" data-v="1" aria-label="Следующий месяц">${ic("chev")}</button></div>`;
 }
-const BTABS = [["overview", "Обзор"], ["ops", "Операции"], ["accounts", "Счета"], ["loans", "Кредиты"], ["advances", "Авансы"]];
+const BTABS = [["overview", "Обзор"], ["ops", "Операции"], ["accounts", "Счета"], ["advances", "Авансы"]];
 function renderBudget() {
   const B = Core.budget(S, D, view.ym);
+  let expectedAll = 0, overdueAll = 0; const tt = Core.today();
+  Core.live(S.plans).forEach(p => { expectedAll += Core.num(p.amount); if (p.date && p.date < tt) overdueAll += Core.num(p.amount); });
   const mName = MONTHS[+view.ym.slice(5) - 1];
   let body = "";
   if (view.btab === "overview") body = budgetOverview(B);
   if (view.btab === "ops") body = budgetOps(B);
   if (view.btab === "accounts") body = budgetAccounts(B);
-  if (view.btab === "loans") body = budgetLoans(B);
   if (view.btab === "advances") body = budgetAdvances(B);
   return `
     <div class="stats">
       ${stat(rub(B.cash), "деньги на счетах", "wallet", "v-money", 'data-a="btab" data-v="accounts"', "money-ic")}
       ${stat(rub(B.free), "свободные деньги", "coins", B.free < 0 ? "v-red" : "v-teal", 'data-a="btab" data-v="overview"', "teal-ic")}
       ${stat(rub(B.month.profit), `прибыль, ${mName}`, "bars", B.month.profit < 0 ? "v-red" : "v-money", 'data-a="btab" data-v="overview"')}
-      ${stat(rub(B.loanDebt), "долг по кредитам", "bank", B.loanDebt ? "v-rust" : "", 'data-a="btab" data-v="loans"')}
+      ${stat(rub(expectedAll), overdueAll ? "ждём оплат, есть просрочка" : "ждём оплат", "clock", overdueAll ? "v-red" : "", 'data-a="btab" data-v="overview"')}
     </div>
     <div class="seg" role="group" aria-label="Раздел бюджета">${BTABS.map(([k, l]) => `<button data-a="btab" data-v="${k}" aria-pressed="${view.btab === k}">${l}</button>`).join("")}</div>
     ${body}`;
 }
 function budgetOverview(B) {
   const M = B.month, st = S.settings, t = Core.today();
+  const taxHint = Core.num(st.taxPct) ? `Налог ${nf.format(st.taxPct)}% от ${st.taxBase === "revenue" ? "выручки" : "поступлений"}: за месяц ${rub(M.taxMonth)}, уже уплачено ${rub(B.taxPaid)} (расходы «Налоги»). Ставка меняется в настройках.` : "";
   const limit = Core.shiftYm(t.slice(0, 7), 1) + t.slice(7);
   const soon = [];
-  B.L.forEach(x => { if (x.nextDue && (x.nextDue <= limit)) soon.push({ date: x.nextDue, title: `Платёж: ${x.loan.name}`, amount: -Core.num(x.loan.monthly), late: x.overdue, act: `data-a="loan" data-id="${x.loan.id}"` }); });
   Core.live(S.plans).forEach(p => { if (!p.date || p.date <= limit) { const c = D.clientMap.get(p.clientId); soon.push({ date: p.date || "", title: `Ожидается: ${c ? c.name : ""}`, amount: Core.num(p.amount), late: p.date && p.date < t, act: `data-a="client" data-id="${p.clientId}"` }); } });
   soon.sort((a, b) => (a.date < b.date ? -1 : 1));
   const debtors = [...D.C.values()].filter(dc => dc.debt > 0).sort((a, b) => b.debt - a.debt);
@@ -2197,8 +2631,9 @@ function budgetOverview(B) {
       <div class="indent">
         <div class="kv"><span>На счетах</span><span class="num">${rub(B.cash)}</span></div>
         <div class="kv"><span>Авансы клиентов за невыданное</span><span class="num">− ${rub(D.totals.advances)}</span></div>
-        <div class="kv"><span>Налоговый резерв</span><span class="num">− ${rub(B.taxReserve)}</span></div>
+        ${Core.num(st.taxPct) ? `<div class="kv"><span>Отложить на налог, ${nf.format(st.taxPct)}%</span><span class="num">− ${rub(B.taxReserve)}</span></div>` : ""}
         <div class="kv accent sep"><span>Свободные деньги</span><span class="num">${rub(B.free)}</span></div>
+        ${taxHint ? `<p class="hint" style="margin-top:4px">${taxHint}</p>` : `<p class="hint" style="margin-top:4px">Ставка налога не задана: в настройках можно указать процент, и приложение будет откладывать его от поступлений.</p>`}
       </div>
     </section>
     ${monthSwitch()}
@@ -2215,26 +2650,33 @@ function budgetOverview(B) {
         <div class="kv"><span>Движение денег по счетам</span><span class="num">${M.cashFlow > 0 ? "+" : ""}${rub(M.cashFlow)}</span></div>
       </div>
     </section>
-    <section class="block"><h3>${ic("doc")}Налоговый резерв</h3>
-      <div class="indent">
-      ${Core.num(st.taxPct) ? `
-        <div class="kv"><span>Ставка</span><span>${nf.format(st.taxPct)}% от ${st.taxBase === "revenue" ? "выручки" : "поступлений"}</span></div>
-        <div class="kv"><span>База за месяц</span><span class="num">${rub(M.taxBase)}</span></div>
-        <div class="kv"><span>Налог за месяц</span><span class="num">${rub(M.taxMonth)}</span></div>
-        <div class="kv sep"><span>Начислено за всё время</span><span class="num">${rub(B.taxAccrued)}</span></div>
-        <div class="kv"><span>Уплачено (расходы «Налоги»)</span><span class="num">${rub(B.taxPaid)}</span></div>
-        <div class="kv accent"><span>Отложить</span><span class="num">${rub(B.taxReserve)}</span></div>`
-      : `<p class="hint" style="margin:0">Ставка налога не задана. Укажите её во вкладке «Ещё → Настройки» — резерв будет вычитаться из свободных денег.</p>`}
-      </div>
+    <section class="block"><h3>${ic("box")}Топ изделий за месяц</h3>
+      ${(() => {
+        const top = new Map();
+        D.O.forEach(d => {
+          if (d.order.status === Core.CANCELLED || !d.order.recognizedAt || d.order.recognizedAt.slice(0, 7) !== view.ym) return;
+          const k = d.gross > 0 ? d.total / d.gross : 1;
+          d.lines.forEach(x => {
+            const it = D.itemMap.get(x.line.itemId); if (!it) return;
+            const r = top.get(it.id) || { item: it, qty: 0, rev: 0, margin: 0 };
+            const q = Core.num(x.line.qty), rev = q * Core.num(x.line.price) * k;
+            r.qty += q; r.rev += rev; r.margin += rev - q * Core.num(x.unitCost);
+            top.set(it.id, r);
+          });
+        });
+        const rows = [...top.values()].sort((a, b) => b.rev - a.rev).slice(0, 5);
+        if (!rows.length) return `<p class="hint indent">В этом месяце продаж не было.</p>`;
+        return rows.map(r => `<button class="rowlink" data-a="item" data-id="${r.item.id}"><span class="l"><b>${esc(r.item.name)}</b><small>${pcs(r.qty)} · маржа ${rub(r.margin)}</small></span><span class="num money" style="font-weight:600">${rub(r.rev)}</span>${ic("chev", "chev")}</button>`).join("");
+      })()}
     </section>
     <section class="block"><h3>${ic("cal")}Ближайшие 30 дней</h3>
-      ${soon.length ? soon.map(x => `<button class="rowlink" ${x.act}><span class="l"><small ${x.late ? 'style="color:var(--red)"' : ""}>${x.date ? fdate(x.date) : "без даты"}${x.late ? ", просрочено" : ""}</small><b>${esc(x.title)}</b></span><span class="num" style="font-weight:600;color:${x.amount < 0 ? "var(--ink)" : "var(--reserve-ink)"}">${x.amount > 0 ? "+" : "−"} ${rub(Math.abs(x.amount))}</span>${ic("chev", "chev")}</button>`).join("") : `<p class="hint indent">Платежей по кредитам и ожидаемых оплат нет.</p>`}
+      ${soon.length ? soon.map(x => `<button class="rowlink" ${x.act}><span class="l"><small ${x.late ? 'style="color:var(--red)"' : ""}>${x.date ? fdate(x.date) : "без даты"}${x.late ? ", просрочено" : ""}</small><b>${esc(x.title)}</b></span><span class="num" style="font-weight:600;color:${x.amount < 0 ? "var(--ink)" : "var(--reserve-ink)"}">${x.amount > 0 ? "+" : "−"} ${rub(Math.abs(x.amount))}</span>${ic("chev", "chev")}</button>`).join("") : `<p class="hint indent">Ожидаемых оплат в ближайшие 30 дней нет.</p>`}
     </section>
     <section class="block"><h3>${ic("users")}Кто должен</h3>
       ${debtors.length ? debtors.slice(0, 10).map(dc => `<button class="rowlink" data-a="client" data-id="${dc.client.id}"><span class="l"><b>${esc(dc.client.name)}</b>${dc.overdue ? `<small style="color:var(--red)">просрочено ${rub(dc.overdue)}</small>` : ""}</span><span class="num money" style="font-weight:600">${rub(dc.debt)}</span>${ic("chev", "chev")}</button>`).join("") : `<p class="hint indent">Долгов по заказам нет.</p>`}
     </section>`;
 }
-const OP_FILTERS = [["all", "Все"], ["out", "Расходы"], ["in", "Доходы"], ["clients", "Оплаты клиентов"], ["loan", "Кредиты"]];
+const OP_FILTERS = [["all", "Все"], ["out", "Расходы"], ["in", "Доходы"], ["clients", "Оплаты клиентов"]];
 function opMeta(op) {
   switch (op.kind) {
     case "Расход": return { icon: "down", title: op.category || "Расход", sign: -1 };
@@ -2307,14 +2749,15 @@ function budgetAdvances(B) {
     </section>`;
 }
 /* --- Операция: форма и карточка --- */
-function opForm(id, presetKind) {
+function opForm(id, presetKind, presetShow) {
   let draft = null;
   return () => {
     const op = id ? find("ops", id) : null;
     if (id && !op) return null;
     if (op && (op.kind === "Платёж по кредиту")) { sheets.pop(); sheets.push(loanPayForm(op.loanId, op.id)); return sheets[sheets.length - 1](); }
     if (!Core.live(S.accounts).length) return { title: "Новая операция", key: "opform-empty", html: `<div class="empty">Сначала добавьте счёт.<br><button class="btn primary" data-a="account-form">${ic("plus")}Добавить счёт</button></div>` };
-    if (!draft) draft = op ? { ...op } : { kind: presetKind === "Доход" ? "Доход" : "Расход", date: Core.today(), amount: "", accountId: "", toAccountId: "", category: "", counterparty: "", note: "" };
+    if (!draft) draft = op ? { ...op } : { kind: presetKind === "Доход" ? "Доход" : "Расход", date: Core.today(), amount: "", accountId: "", toAccountId: "",
+      category: presetShow ? "Выставки" : "", counterparty: "", note: "", showId: presetShow || "" };
     const kinds = op && !["Расход", "Доход"].includes(op.kind) ? [op.kind] : ["Расход", "Доход"];
     const k = draft.kind;
     const cats = k === "Доход" ? S.settings.incomeCats : S.settings.expenseCats;
@@ -2329,6 +2772,7 @@ function opForm(id, presetKind) {
         ${k === "Расход" || k === "Доход" || k === "Аванс поставщику" ? `<label class="f">Категория${k === "Аванс поставщику" ? " (станет расходом при закрытии)" : ""}<input name="category" list="dl-cats" value="${esc(draft.category || cats[0] || "")}"></label><datalist id="dl-cats">${cats.map(x => `<option value="${esc(x)}">`).join("")}</datalist>` : ""}
         ${k === "Аванс поставщику" ? fld("Поставщик", "counterparty", draft.counterparty) : ""}
         ${fld("Заметка", "note", draft.note)}
+        ${draft.showId && D.showMap.get(draft.showId) ? `<p class="hint">Расход привязан к выставке «${esc(D.showMap.get(draft.showId).name)}» и попадёт в её прибыль.</p>` : ""}
         ${k === "Кредит получен" ? `<p class="hint">Получение кредита — не доход: деньги на счёте растут, долг учитывается в карточке кредита.</p>` : ""}
       </section>
       <div id="f-err" class="err"></div>${formBtns()}</form>`,
@@ -2344,7 +2788,7 @@ function opForm(id, presetKind) {
           if (amt <= 0) { err.textContent = "Сумма должна быть больше нуля."; return; }
           if (!v.accountId) { err.textContent = "Выберите счёт."; return; }
           if (draft.kind === "Перевод" && v.toAccountId === v.accountId) { err.textContent = "Счета списания и зачисления совпадают."; return; }
-          const rec = op || { id: Core.uid(), closedAt: "" };
+          const rec = op || { id: Core.uid(), closedAt: "", showId: draft.showId || "" };
           Object.assign(rec, { kind: draft.kind, date: v.date || Core.today(), amount: amt, accountId: v.accountId, toAccountId: draft.kind === "Перевод" ? v.toAccountId : "",
             category: v.category || "", counterparty: v.counterparty || "", note: v.note || "" });
           if (rec.kind !== "Аванс поставщику") rec.closedAt = "";
@@ -2387,7 +2831,7 @@ function opSheet(id) {
         const ro = $("#reopen", l);
         if (ro) ro.onclick = () => { op.closedAt = ""; touch(op); log("Бюджет", id, `Аванс поставщику снова открыт: ${rub(op.amount)}`); commit(); };
         $("#op-del", l).onclick = () => confirmSheet("Удалить операцию?", `${esc(m.title)}, ${rub(op.amount)} от ${fdate(op.date)}. Остатки и итоги пересчитаются.`, "Удалить", () => {
-          op.deleted = true; touch(op); log("Бюджет", id, `Удалена операция: ${m.title}, ${rub(op.amount)}`); sheets.length = 0; commit();
+          op.deleted = true; touch(op); log("Бюджет", id, `Удалена операция: ${m.title}, ${rub(op.amount)}`); sheets.length = 0; commit(`Удалена операция ${rub(op.amount)}`);
         }, true);
       } };
   };
@@ -2411,7 +2855,7 @@ function accountSheet(id) {
       after: l => {
         $("#acc-del", l).onclick = () => {
           if (moves.length) { toast("По счёту есть движения — удалить нельзя."); return; }
-          confirmSheet("Удалить счёт?", esc(a.name), "Удалить", () => { a.deleted = true; touch(a); log("Бюджет", id, `Удалён счёт «${a.name}»`); sheets.length = 0; commit(); }, true);
+          confirmSheet("Удалить счёт?", esc(a.name), "Удалить", () => { a.deleted = true; touch(a); log("Бюджет", id, `Удалён счёт «${a.name}»`); sheets.length = 0; commit(`Удалён счёт «${a.name}»`); }, true);
         };
       } };
   };
@@ -2542,7 +2986,7 @@ function loanPayForm(loanId, opId) {
         form.addEventListener("input", upd); upd();
         const del = $("#lp-del", l);
         if (del) del.onclick = () => confirmSheet("Удалить платёж?", `${rub(op.amount)} от ${fdate(op.date)}. Остаток долга и остаток счёта пересчитаются.`, "Удалить", () => {
-          op.deleted = true; touch(op); log("Кредит", loanId, `Удалён платёж по кредиту «${loan.name}»: ${rub(op.amount)}`); sheets.pop(); commit();
+          op.deleted = true; touch(op); log("Кредит", loanId, `Удалён платёж по кредиту «${loan.name}»: ${rub(op.amount)}`); sheets.pop(); commit("Платёж удалён");
         }, true);
         form.onsubmit = e => {
           e.preventDefault(); const v = formData(form);
@@ -2561,6 +3005,164 @@ function loanPayForm(loanId, opId) {
   };
 }
 
+/* ===================== ДРОП ===================== */
+const DROP_STAGES = ["Рендер", "Прототип", "В работе", "Выдача"];
+function renderDrops() {
+  const list = [...D.DR.values()].sort((a, b) => (a.drop.closed ? 1 : 0) - (b.drop.closed ? 1 : 0) || ((a.drop.createdAt || "") < (b.drop.createdAt || "") ? 1 : -1));
+  let people = 0, waiting = 0;
+  list.forEach(x => { if (!x.drop.closed) { people += x.people; waiting += x.waiting; } });
+  return `
+    <div class="stats">
+      ${stat(nf.format(people), "записалось на активные дропы", "users", "v-teal", "", "teal-ic")}
+      ${stat(pcs(waiting), "ждут заказа", "clock", waiting ? "v-rust" : "", "")}
+    </div>
+    <div class="list">${list.length ? list.map(dropCard).join("") : `<div class="empty">Дропов пока нет. Дроп — это выпуск изделия: публикуешь рендер, собираешь записи, потом прототип и новые записи, а когда готово — превращаешь записи в заказы. Нажмите «Дроп» внизу справа.</div>`}</div>`;
+}
+function dropCard(x) {
+  const dr = x.drop, it = x.item;
+  return `<button class="card noimg" data-a="drop" data-id="${dr.id}"><span class="body">
+    <span class="row"><span class="name">${esc(it ? it.name : "изделие удалено")}</span><span class="pill round ${dr.closed ? "" : "green"}">${dr.closed ? "завершён" : esc(dr.stage || DROP_STAGES[0])}</span></span>
+    <span class="crow sub"><span class="cmeta">${x.people} ${plural(x.people, "запись", "записи", "записей")} · ${pcs(x.qty)}${dr.due ? ` · срок ${fdate(dr.due)}` : ""}</span><span class="cprice num">${rub(dr.price || (it ? it.price : 0))}<small>/шт</small></span></span>
+    ${x.waiting ? `<span class="flags"><span class="pill sm orange">${ic("clock")}без заказа ${x.waiting} шт</span></span>` : ""}
+  </span></button>`;
+}
+function dropForm(id, presetItem) {
+  return () => {
+    const dr = id ? find("drops", id) : null;
+    if (id && !dr) return null;
+    const items = Core.live(S.items).sort((a, b) => a.item ? 0 : a.name.localeCompare(b.name, "ru"));
+    if (!items.length) return { title: "Новый дроп", key: "dropform-empty", html: `<div class="empty">Сначала добавьте изделие на склад — дроп делается по нему.<br><button class="btn primary" data-a="item-form">${ic("plus")}Добавить изделие</button></div>` };
+    const pre = presetItem ? find("items", presetItem) : null;
+    const cur = dr || { itemId: pre ? pre.id : "", stage: DROP_STAGES[0], price: pre ? pre.price : "", planQty: "", due: "", note: "" };
+    return { title: id ? "Изменить дроп" : "Новый дроп", key: "dropform" + (id || ""), html: `<form id="f-drop"><section class="block">
+      ${sel("Изделие *", "itemId", [["", "— выберите —"], ...items.map(i => [i.id, i.name])], cur.itemId)}
+      ${sel("Стадия", "stage", DROP_STAGES, cur.stage || DROP_STAGES[0])}
+      ${fld("Цена дропа, ₽", "price", cur.price, "number")}
+      ${fld("Планируемый тираж, шт", "planQty", cur.planQty, "number", 'min="0" step="1" inputmode="numeric"')}
+      ${fld("Срок", "due", cur.due, "date")}
+      <label class="f">Заметка<textarea name="note">${esc(cur.note || "")}</textarea></label>
+      </section><div id="f-err" class="err"></div>${formBtns()}</form>`,
+      after: l => {
+        const form = $("#f-drop", l);
+        form.addEventListener("change", e => {
+          if (e.target.name === "itemId" && !Core.num(form.price.value)) { const it = find("items", e.target.value); if (it) form.price.value = it.price; }
+        });
+        form.onsubmit = e => {
+          e.preventDefault(); const v = formData(form);
+          if (!v.itemId) { $("#f-err", l).textContent = "Выберите изделие."; return; }
+          const it = find("items", v.itemId);
+          const rec = dr || { id: Core.uid(), closed: false };
+          Object.assign(rec, { itemId: v.itemId, stage: v.stage || DROP_STAGES[0], price: Core.round2(Core.num(v.price)) || Core.num(it.price), planQty: Math.max(0, Math.round(Core.num(v.planQty))), due: v.due, note: v.note });
+          touch(rec); if (!dr) S.drops.push(rec);
+          log("Дроп", rec.id, `${dr ? "Изменён" : "Создан"} дроп «${it.name}», стадия «${rec.stage}»${rec.due ? `, срок ${fdate(rec.due)}` : ""}`);
+          sheets.pop(); if (!dr) sheets.push(dropSheet(rec.id)); commit();
+          if (!dr) openSheet(signupSheet(rec.id));
+        };
+      } };
+  };
+}
+function dropAnnounce(x) {
+  const dr = x.drop, it = x.item;
+  const out = [`«${it ? it.name : ""}»${it && it.series ? ` · серия «${it.series}»` : ""}`, `Стадия: ${dr.stage || DROP_STAGES[0]}`];
+  out.push(`Цена: ${rub(dr.price || (it ? it.price : 0))}`);
+  if (dr.planQty) out.push(`Тираж: ${dr.planQty} шт`);
+  if (dr.due) out.push(`Срок: ${fdate(dr.due)}`);
+  if (x.people) out.push(`Уже записались: ${x.people} ${plural(x.people, "человек", "человека", "человек")} на ${x.qty} шт`);
+  out.push("", "Запись в комментариях или в личные сообщения.");
+  return out.join("\n");
+}
+function dropQueueText(x) {
+  const lines = x.signups.map((s, n) => `${n + 1}. ${s.client ? s.client.name : "—"} — ${s.qty} шт${s.order ? ` (заказ №${s.order.no})` : ""}`);
+  return [`Запись на «${x.item ? x.item.name : ""}»:`, "", ...lines, "", `Итого: ${x.people} ${plural(x.people, "запись", "записи", "записей")} на ${x.qty} шт`].join("\n");
+}
+function dropSheet(id) {
+  return () => {
+    const x = D.DR.get(id); if (!x) return null;
+    const dr = x.drop, it = x.item;
+    const di = it ? D.I.get(it.id) : null;
+    const free = di ? Math.max(0, di.free) : 0;
+    const need = Math.max(0, x.qty - (di ? di.planned + free : 0));
+    const noOrder = x.signups.filter(s => !s.order || s.order.status === Core.CANCELLED);
+    return { title: it ? it.name : "Дроп", key: "drop" + id, html: `
+      ${dr.note ? `<div class="hero"><div class="meta">${esc(dr.note)}</div></div>` : ""}
+      <section class="block">
+        <p class="hint" style="margin-top:0">Стадия</p>
+        <div class="chips status">${DROP_STAGES.map(s => `<button data-a="drop-stage" data-id="${id}" data-v="${s}" aria-pressed="${(dr.stage || DROP_STAGES[0]) === s}" ${dr.closed ? "disabled" : ""}>${s}</button>`).join("")}</div>
+        <div class="kv sep"><span>Цена дропа</span><span class="num">${rub(dr.price || (it ? it.price : 0))}</span></div>
+        ${dr.planQty ? `<div class="kv"><span>Планируемый тираж</span><span class="num">${pcs(dr.planQty)}</span></div>` : ""}
+        ${dr.due ? `<div class="kv"><span>Срок</span><span>${fdate(dr.due)}</span></div>` : ""}
+        <div class="kv"><span>Записалось</span><span class="num">${x.people} ${plural(x.people, "человек", "человека", "человек")} на ${pcs(x.qty)}</span></div>
+        <div class="kv"><span>Уже в заказах</span><span class="num">${pcs(x.ordered)}</span></div>
+        ${x.waiting ? `<div class="kv accent"><span>Ждут заказа</span><span class="num">${pcs(x.waiting)}</span></div>` : ""}
+        ${di ? `<div class="kv sep"><span>На складе</span><span class="num">свободно ${free}, осталось сделать ${di.planned}</span></div>` : ""}
+        ${need && di ? `<p class="hint">Не хватает ${need} шт: ни готовых, ни в тираже.</p>` : ""}
+      </section>
+      <section class="block"><h3>${ic("users")}Кто записался</h3>
+        ${x.signups.map(s => `<div class="rowlink plain"><button class="l plainbtn" data-a="client" data-id="${s.rec.clientId}">${esc(s.client ? s.client.name : "клиент удалён")}<small>${s.qty} шт · ${fdate(s.rec.date || "")}${s.rec.stage ? ` · ${esc(s.rec.stage)}` : ""}${s.rec.note ? ` · ${esc(s.rec.note)}` : ""}</small></button>
+          ${s.order && s.order.status !== Core.CANCELLED ? `<button class="pill green round" data-a="order" data-id="${s.order.id}">заказ №${s.order.no}</button>` : `<button class="btn small" data-a="drop-order" data-id="${s.rec.id}">${ic("docplus")}Заказ</button>`}
+          <button class="btn textred" data-a="signup-del" data-id="${s.rec.id}" aria-label="Убрать запись">${ic("trash")}</button></div>`).join("") || `<p class="hint indent">Пока никто не записался.</p>`}
+        <div class="btns g2">
+          <button class="btn primary" data-a="signup-add" data-id="${id}">${ic("plus")}Записать</button>
+          ${noOrder.length ? `<button class="btn" data-a="drop-orders-all" data-id="${id}">${ic("docplus")}Заказы всем (${noOrder.length})</button>` : ""}
+        </div>
+      </section>
+      <section class="block"><h3>${ic("doc")}Тексты</h3>
+        <div class="btns g2"><button class="btn" data-a="copy-drop" data-id="${id}">${ic("doc")}Анонс</button><button class="btn" data-a="copy-queue" data-id="${id}">${ic("users")}Список записи</button></div>
+      </section>
+      <div class="btns g3 bottom">
+        <button class="btn outline" data-a="drop-form" data-id="${id}">${ic("pencil")}Изменить</button>
+        ${need && di && !dr.closed ? `<button class="btn" data-a="drop-batch" data-id="${id}">${ic("cal")}В тираж ${need}</button>` : `<button class="btn" id="drop-close">${ic(dr.closed ? "play" : "checkc")}${dr.closed ? "Вернуть" : "Завершить"}</button>`}
+        <button class="btn danger" id="drop-del">${ic("trash")}Удалить</button>
+      </div>`,
+      after: l => {
+        const cl = $("#drop-close", l);
+        if (cl) cl.onclick = () => { dr.closed = !dr.closed; touch(dr); log("Дроп", id, `Дроп «${it ? it.name : ""}» ${dr.closed ? "завершён" : "возобновлён"}`); commit(); };
+        $("#drop-del", l).onclick = () => confirmSheet("Удалить дроп?", `${esc(it ? it.name : "")}. Записи удалятся, созданные заказы останутся.`, "Удалить", () => {
+          dr.deleted = true; touch(dr);
+          S.signups.forEach(su => { if (su.dropId === id && !su.deleted) { su.deleted = true; touch(su); } });
+          log("Дроп", id, `Удалён дроп «${it ? it.name : ""}»`); sheets.length = 0; commit("Дроп удалён");
+        }, true);
+      } };
+  };
+}
+function signupSheet(dropId) {
+  let cmode = Core.live(S.clients).filter(c => c.system !== "show").length ? "list" : "new";
+  return () => {
+    const x = D.DR.get(dropId); if (!x) return null;
+    return { title: `Записать: ${x.item ? x.item.name : ""}`, key: "signup" + dropId, html: `<form id="f-signup"><section class="block">
+      ${clientPicker(cmode)}
+      ${fld("Штук", "qty", 1, "number", 'min="1" step="1" inputmode="numeric"')}
+      ${fld("Дата записи", "date", Core.today(), "date")}
+      ${fld("Заметка", "note", "")}
+      </section><div id="f-err" class="err"></div>${formBtns("Записать")}</form>`,
+      after: l => {
+        const f = $("#f-signup", l);
+        l.querySelectorAll("[data-cmode]").forEach(btn => (btn.onclick = e => { e.stopPropagation(); cmode = btn.dataset.cmode; renderSheet(); }));
+        f.onsubmit = e => {
+          e.preventDefault(); const v = formData(f);
+          const r = resolveClient(v);
+          if (r.error) { $("#f-err", l).textContent = r.error; return; }
+          const q = Math.max(1, Math.round(Core.num(v.qty)));
+          S.signups.push(touch({ id: Core.uid(), dropId, clientId: r.client.id, qty: q, date: v.date || Core.today(), stage: x.drop.stage || DROP_STAGES[0], orderId: "", note: v.note }));
+          log("Дроп", dropId, `${r.client.name} записался на «${x.item ? x.item.name : ""}» — ${q} шт (стадия «${x.drop.stage || DROP_STAGES[0]}»)`);
+          sheets.pop(); commit();
+        };
+      } };
+  };
+}
+function dropMakeOrder(signupId) {
+  const su = find("signups", signupId); if (!su) return null;
+  const x = D.DR.get(su.dropId); if (!x || !x.item) return null;
+  const c = find("clients", su.clientId); if (!c) return null;
+  const price = Core.num(x.drop.price) || Core.num(x.item.price);
+  const order = touch({ id: Core.uid(), no: S.settings.nextOrderNo++, clientId: c.id, date: Core.today(), status: "Новый", discount: Core.num(c.discount), pickup: c.pickup || "", note: `Дроп «${x.item.name}»`, recognizedAt: "" });
+  S.orders.push(order);
+  S.lines.push(touch({ id: Core.uid(), orderId: order.id, itemId: x.item.id, qty: Math.max(1, Math.round(Core.num(su.qty))), price, costSnap: "" }));
+  su.orderId = order.id; touch(su);
+  log("Дроп", su.dropId, `Из записи создан заказ №${order.no}: ${c.name}, «${x.item.name}» ×${su.qty}`);
+  return order;
+}
+
 /* ===================== ВЫСТАВКИ ===================== */
 function showDates(sh) {
   if (!sh.dateFrom && !sh.dateTo) return "";
@@ -2576,24 +3178,35 @@ function renderShows() {
       ${stat(rub(rev), "выручка со всех выставок", "coins", "v-money", "", "money-ic")}
       ${stat(pcs(atStand), `сейчас на стендах, продано всего ${sold}`, "box", "v-teal", "", "teal-ic")}
     </div>
-    <div class="list">${list.length ? list.map(showCard).join("") : `<div class="empty">Выставок пока нет. Создайте выставку, возьмите на неё изделия со склада — и продавайте через кассу с калькулятором.<br><button class="btn primary" data-a="show-form">${ic("plus")}Новая выставка</button></div>`}</div>`;
+    <div class="list">${list.length ? list.map(showCard).join("") : `<div class="empty">Выставок пока нет. Нажмите «Выставка» внизу справа: возьмёте изделия со склада и будете продавать через кассу с калькулятором.</div>`}</div>`;
+}
+function showStatus(sh) {
+  const t = Core.today();
+  if (sh.closed) return "завершена";
+  if (sh.dateFrom && sh.dateFrom > t) {
+    const days = Math.round((new Date(sh.dateFrom) - new Date(t)) / 864e5);
+    return days === 1 ? "завтра" : `через ${days} ${plural(days, "день", "дня", "дней")}`;
+  }
+  if (sh.dateTo && sh.dateTo < t) return "прошла";
+  if (sh.dateFrom && sh.dateFrom <= t) return "идёт";
+  return "идёт";
 }
 function showCard(x) {
   const sh = x.show;
   let left = 0; x.items.forEach(r => (left += r.left));
   return `<button class="card noimg" data-a="show" data-id="${sh.id}"><span class="body">
-    <span class="row"><span class="name">${esc(sh.name)}</span><span class="pill round ${sh.closed ? "" : "green"}">${sh.closed ? "завершена" : "идёт"}</span></span>
-    <span class="meta" style="display:block">${[showDates(sh), sh.place].filter(Boolean).map(esc).join(" · ") || "&nbsp;"}</span>
+    <span class="row"><span class="name">${esc(sh.name)}</span><span class="pill round ${sh.closed ? "" : "green"}">${showStatus(sh)}</span></span>
+    ${showDates(sh) ? `<span class="meta" style="display:block">${esc(showDates(sh))}</span>` : ""}
+    ${x.takenQty ? `<span class="paybar" aria-hidden="true"><i style="width:${Math.min(100, x.soldQty / x.takenQty * 100)}%"></i></span>` : ""}
     <span class="totline"><span>Взято ${x.takenQty} · продано ${x.soldQty}${sh.closed ? "" : ` · на стенде ${left}`}</span><b class="num">${rub(x.revenue)}</b></span>
   </span></button>`;
 }
 function showForm(id) {
   return () => {
-    const sh = id ? find("shows", id) : { name: "", place: "", dateFrom: Core.today(), dateTo: "", note: "" };
+    const sh = id ? find("shows", id) : { name: "", dateFrom: Core.today(), dateTo: "", note: "" };
     if (!sh) return null;
     return { title: id ? "Изменить выставку" : "Новая выставка", key: "showform" + (id || ""), html: `<form id="f-show"><section class="block">
       ${fld("Название *", "name", sh.name, "text", 'placeholder="Арт-маркет, ярмарка, фестиваль"')}
-      ${fld("Место", "place", sh.place)}
       ${fld("Дата начала", "dateFrom", sh.dateFrom, "date")}
       ${fld("Дата окончания", "dateTo", sh.dateTo, "date")}
       <label class="f">Заметка<textarea name="note">${esc(sh.note)}</textarea></label>
@@ -2604,7 +3217,7 @@ function showForm(id) {
           if (!v.name) { $("#f-err", l).textContent = "Укажите название."; return; }
           if (v.dateFrom && v.dateTo && v.dateTo < v.dateFrom) { $("#f-err", l).textContent = "Дата окончания раньше даты начала."; return; }
           const rec = id ? sh : { id: Core.uid(), closed: false };
-          Object.assign(rec, { name: v.name, place: v.place, dateFrom: v.dateFrom, dateTo: v.dateTo, note: v.note });
+          Object.assign(rec, { name: v.name, dateFrom: v.dateFrom, dateTo: v.dateTo, note: v.note });
           touch(rec); if (!id) S.shows.push(rec);
           log("Выставка", rec.id, `${id ? "Изменена" : "Создана"} выставка «${rec.name}»`);
           sheets.pop(); if (!id) sheets.push(showSheet(rec.id)); commit();
@@ -2614,12 +3227,12 @@ function showForm(id) {
 }
 function showBuyer() {
   let c = S.clients.find(x => !x.deleted && x.system === "show");
-  if (!c) { c = touch({ id: Core.uid(), name: "Покупатели на выставках", phone: "", pickup: "", discount: 0, note: "Сюда записываются продажи на выставках без указания покупателя.", system: "show" }); S.clients.push(c); }
+  if (!c) { c = touch({ id: Core.uid(), name: "Продажи на выставках", phone: "", pickup: "", discount: 0, note: "Служебная запись: сюда попадают все продажи с выставок.", system: "show" }); S.clients.push(c); }
   return c;
 }
 function showSheet(id) {
   const cart = new Map();
-  let discount = 0, accountId = "", buyer = "";
+  let discount = 0, discSum = "", accountId = "";
   return () => {
     const x = D.SH.get(id); if (!x) return null;
     const sh = x.show;
@@ -2628,11 +3241,11 @@ function showSheet(id) {
     const rows = [...x.items.values()].map(r => ({ ...r, item: D.itemMap.get(r.itemId) })).filter(r => r.item).sort((a, b) => a.item.name.localeCompare(b.item.name, "ru"));
     [...cart.keys()].forEach(k => { const r = rows.find(z => z.itemId === k); if (!r || cart.get(k) > r.left || cart.get(k) <= 0) { if (!r || r.left <= 0) cart.delete(k); else cart.set(k, Math.min(cart.get(k), r.left)); } });
     let gross = 0, qty = 0; cart.forEach((q, k) => { const r = rows.find(z => z.itemId === k); gross += q * r.price; qty += q; });
-    const disc = Core.round2(gross * Core.num(discount) / 100), total = Core.round2(gross - disc);
+    const disc = Core.num(discSum) > 0 ? Core.round2(Math.min(gross, Core.num(discSum))) : Core.round2(gross * Core.num(discount) / 100);
+    const total = Core.round2(gross - disc);
     let leftQty = 0, leftSum = 0; rows.forEach(r => { leftQty += r.left; leftSum += r.left * r.price; });
-    const clients = Core.live(S.clients).filter(c => c.system !== "show").sort((a, b) => a.name.localeCompare(b.name, "ru"));
     return { title: sh.name, key: "show" + id, html: `
-      <div class="hero"><div class="meta">${[showDates(sh), sh.place].filter(Boolean).map(esc).join(" · ") || "Даты не указаны"}</div></div>
+      ${showDates(sh) || sh.note ? `<div class="hero"><div class="meta">${[showDates(sh), sh.note].filter(Boolean).map(esc).join(" · ")}</div></div>` : ""}
       <section class="block"><h3>${ic("bars")}Итоги</h3><div class="indent">
         <div class="kv"><span>Взято</span><span class="num">${pcs(x.takenQty)} на ${rub(x.takenSum)}</span></div>
         <div class="kv"><span>Продано</span><span class="num">${pcs(x.soldQty)}</span></div>
@@ -2649,18 +3262,25 @@ function showSheet(id) {
           </div>`; }).join("") : `<p class="hint">На стенде ничего не осталось. Возьмите изделия со склада.</p>`}
         <div class="calc">
           <div class="kv"><span>Сумма, ${pcs(qty)}</span><span class="num">${rub(gross)}</span></div>
-          <div class="discrow"><span>Скидка</span><span class="dchips">${[0, 5, 10, 15, 20].map(p => `<button type="button" data-disc="${p}" aria-pressed="${Core.num(discount) === p}">${p}%</button>`).join("")}</span><label class="dinput"><input id="disc-in" type="number" inputmode="decimal" min="0" max="100" value="${esc(discount)}" aria-label="Скидка, %"><span>%</span></label></div>
-          ${disc ? `<div class="kv"><span>Скидка ${nf.format(Core.num(discount))}%</span><span class="num">− ${rub(disc)}</span></div>` : ""}
+          <div class="discrow"><span>Скидка</span><span class="dchips">${[0, 5, 10, 15, 20].map(p => `<button type="button" data-disc="${p}" aria-pressed="${Core.num(discount) === p}">${p}%</button>`).join("")}</span><label class="dinput"><input id="disc-in" type="number" inputmode="decimal" min="0" max="100" value="${esc(discount)}" aria-label="Скидка, %"><span>%</span></label>
+          <label class="dinput"><input id="disc-sum" type="number" inputmode="decimal" min="0" value="${esc(discSum)}" aria-label="Скидка, ₽"><span>₽</span></label></div>
+          ${disc ? `<div class="kv"><span>Скидка${Core.num(discSum) > 0 ? "" : ` ${nf.format(Core.num(discount))}%`}</span><span class="num">− ${rub(disc)}</span></div>` : ""}
           <div class="bigtotal"><span>К оплате</span><b class="num">${rub(total)}</b></div>
           <p class="hint" style="margin:8px 0 4px">Куда пришли деньги</p>
           <div class="chips">${accs.map(a => `<button type="button" data-acc="${a.id}" aria-pressed="${a.id === accountId}">${esc(a.name)}</button>`).join("")}</div>
-          ${sel("Покупатель (необязательно)", "buyer", [["", "Не указан"], ...clients.map(c => [c.id, c.name])], buyer, 'id="buyer-in"')}
           <button type="button" class="btn primary sellbtn" id="sell" ${qty && accountId ? "" : "disabled"}>${ic("check")}Продано${qty ? ` — ${rub(total)}` : ""}</button>
         </div>
       </section>`}
       <section class="block"><h3>${ic("box")}Изделия на выставке</h3>
         ${rows.map(r => `<button class="rowlink" data-a="show-item" data-id="${r.rec.id}" data-show="${id}"><span class="l"><b>${esc(r.item.name)}</b><small class="num">взято ${r.taken} · продано ${r.sold} · ${sh.closed ? "вернулось" : "на стенде"} ${r.left} · ${rub(r.price)}/шт</small></span>${ic("chev", "chev")}</button>`).join("") || `<p class="hint indent">Пока ничего не взято.</p>`}
         ${sh.closed ? "" : `<div class="btns"><button class="btn" data-a="show-take" data-id="${id}">${ic("plus")}Взять изделия со склада</button></div>`}
+      </section>
+      <section class="block"><h3>${ic("coins")}Расходы выставки</h3>
+        ${Core.live(S.ops).filter(op => op.showId === id).sort((a, b) => (a.date < b.date ? 1 : -1)).map(opRow).join("") || `<p class="hint indent">Расходов нет: аренда места, дорога, печать ценников.</p>`}
+        <div class="kv accent indent"><span>Итого расходов</span><span class="num">${rub(x.expenses || 0)}</span></div>
+        <div class="kv accent indent"><span>Прибыль выставки</span><span class="num" ${x.profit < 0 ? 'style="color:var(--red)"' : ""}>${rub(x.profit || 0)}</span></div>
+        <p class="hint indent">Прибыль = маржа проданного − расходы выставки.</p>
+        <div class="btns"><button class="btn" data-a="op-form" data-v="Расход" data-show="${id}">${ic("plus")}Добавить расход</button></div>
       </section>
       <section class="block"><h3>${ic("doc")}Продажи</h3>
         ${x.orders.map(d => `<div class="payrow"><b class="num">${rub(d.total)}</b><span class="l"><span>${fdt(d.order.createdAt)}${d.order.discount ? ` · скидка ${nf.format(d.order.discount)}%` : ""}</span><span>${esc(d.lines.map(l => (D.itemMap.get(l.line.itemId) || {}).name + (l.line.qty > 1 ? " ×" + l.line.qty : "")).join(", "))}</span></span>
@@ -2673,22 +3293,22 @@ function showSheet(id) {
       </div>`,
       after: l => {
         l.querySelectorAll("[data-cart]").forEach(b => (b.onclick = e => { e.stopPropagation(); const k = b.dataset.item; const q = (cart.get(k) || 0) + (b.dataset.cart === "+" ? 1 : -1); if (q <= 0) cart.delete(k); else cart.set(k, q); renderSheet(); }));
-        l.querySelectorAll("[data-disc]").forEach(b => (b.onclick = e => { e.stopPropagation(); discount = +b.dataset.disc; renderSheet(); }));
+        l.querySelectorAll("[data-disc]").forEach(b => (b.onclick = e => { e.stopPropagation(); discount = +b.dataset.disc; discSum = ""; renderSheet(); }));
         l.querySelectorAll("[data-acc]").forEach(b => (b.onclick = e => { e.stopPropagation(); accountId = b.dataset.acc; renderSheet(); }));
-        const di = $("#disc-in", l); if (di) di.onchange = () => { discount = Math.max(0, Math.min(100, Core.num(di.value))); renderSheet(); };
-        const bi = $("#buyer-in", l); if (bi) bi.onchange = () => { buyer = bi.value; };
+        const di = $("#disc-in", l); if (di) di.onchange = () => { discount = Math.max(0, Math.min(100, Core.num(di.value))); discSum = ""; renderSheet(); };
+        const ds = $("#disc-sum", l); if (ds) ds.onchange = () => { discSum = Math.max(0, Core.num(ds.value)) || ""; if (discSum) discount = 0; renderSheet(); };
         const sell = $("#sell", l);
         if (sell) sell.onclick = () => {
           if (!cart.size || !accountId) return;
-          const c = buyer ? find("clients", buyer) : showBuyer();
-          const order = touch({ id: Core.uid(), no: S.settings.nextOrderNo++, clientId: c.id, date: Core.today(), status: "Получен", discount: Core.num(discount), pickup: "", note: `Выставка «${sh.name}»`, showId: id, recognizedAt: "" });
+          const c = showBuyer();
+          const order = touch({ id: Core.uid(), no: S.settings.nextOrderNo++, clientId: c.id, date: Core.today(), status: "Получен", discount: Core.num(discount), discountSum: Core.num(discSum), pickup: "", note: `Выставка «${sh.name}»`, showId: id, recognizedAt: "" });
           S.orders.push(order);
           const names = [];
           cart.forEach((q, k) => { const r = rows.find(z => z.itemId === k); S.lines.push(touch({ id: Core.uid(), orderId: order.id, itemId: k, qty: q, price: r.price, costSnap: "" })); names.push(`${r.item.name}${q > 1 ? " ×" + q : ""}`); });
           const pay = touch({ id: Core.uid(), clientId: c.id, orderId: order.id, date: Core.today(), kind: "Оплата", amount: total, accountId, note: `Выставка «${sh.name}»` });
           S.payments.push(pay);
           log("Выставка", id, `Продажа на выставке «${sh.name}»: ${names.join(", ")} — ${rub(total)}${Core.num(discount) ? ` (скидка ${discount}%)` : ""}, ${accName(accountId)}`);
-          cart.clear(); discount = 0; buyer = "";
+          cart.clear(); discount = 0; discSum = "";
           commit();
           toast(`Продано на ${rub(total)}`);
         };
@@ -2700,7 +3320,7 @@ function showSheet(id) {
           if (x.orders.length) { toast("На выставке есть продажи — удалить нельзя. Можно завершить."); return; }
           confirmSheet("Удалить выставку?", `«${esc(sh.name)}». Взятые изделия вернутся в свободные на складе.`, "Удалить", () => {
             sh.deleted = true; touch(sh); S.showItems.forEach(si => { if (si.showId === id && !si.deleted) { si.deleted = true; touch(si); } });
-            log("Выставка", id, `Удалена выставка «${sh.name}»`); sheets.length = 0; commit();
+            log("Выставка", id, `Удалена выставка «${sh.name}»`); sheets.length = 0; commit(`Удалена выставка «${sh.name}»`);
           }, true);
         };
       } };
@@ -2774,7 +3394,7 @@ function showItemSheet(recId, showId) {
 }
 
 /* ===================== КОПИЯ И НАСТРОЙКИ ===================== */
-const LOG_ICON = { "Заказ": ["doc", ""], "Оплата": ["coins", "money"], "План оплаты": ["clock", "money"], "Ожидаемая оплата": ["clock", "money"], "Изделие": ["box", ""], "Клиент": ["user", ""], "Копия": ["excel", ""], "Настройки": ["gear", ""], "Бюджет": ["wallet", "money"], "Кредит": ["bank", "money"], "Выставка": ["bookmark", ""] };
+const LOG_ICON = { "Заказ": ["doc", ""], "Оплата": ["coins", "money"], "План оплаты": ["clock", "money"], "Ожидаемая оплата": ["clock", "money"], "Изделие": ["box", ""], "Клиент": ["user", ""], "Копия": ["excel", ""], "Настройки": ["gear", ""], "Бюджет": ["wallet", "money"], "Кредит": ["bank", "money"], "Выставка": ["bookmark", ""], "Дроп": ["up", ""] };
 function renderMore() {
   const st = S.settings;
   const logs = S.log.slice().sort((a, b) => (a.at < b.at ? 1 : -1)).slice(0, 150);
@@ -2793,6 +3413,8 @@ function renderMore() {
       <p class="hint">Загрузка полностью заменяет данные в приложении содержимым файла. Перед заменой будет предложено выгрузить текущие данные.</p>
     </section>
     <section class="block"><h3>${ic("gear")}Настройки</h3>
+      <p class="hint" style="margin-top:0">Тема оформления</p>
+      <div class="sizes" role="group" aria-label="Тема">${[["auto", "Как в телефоне"], ["light", "Светлая"], ["dark", "Тёмная"]].map(([k, l]) => `<button data-a="theme" data-v="${k}" aria-pressed="${getTheme() === k}">${l}</button>`).join("")}</div>
       <p class="hint" style="margin-top:0">Размер текста на этом телефоне</p>
       <div class="sizes" role="group" aria-label="Размер текста">${[["s", "Мелкий"], ["m", "Средний"], ["l", "Крупный"]].map(([k, l]) => `<button data-a="size" data-v="${k}" aria-pressed="${getSize() === k}">${l}</button>`).join("")}</div>
       <form id="f-settings">
@@ -2832,7 +3454,7 @@ async function doExport() {
   });
   const buf = XLSX.write(wb, { bookType: "xlsx", type: "array" });
   const stamp = new Date(); const pad = n => String(n).padStart(2, "0");
-  const filename = `Мастерская копия ${stamp.getFullYear()}-${pad(stamp.getMonth() + 1)}-${pad(stamp.getDate())} ${pad(stamp.getHours())}-${pad(stamp.getMinutes())}.xlsx`;
+  const filename = `Верстак копия ${stamp.getFullYear()}-${pad(stamp.getMonth() + 1)}-${pad(stamp.getDate())} ${pad(stamp.getHours())}-${pad(stamp.getMinutes())}.xlsx`;
   const dl = await getDownloads();
   let ok = false;
   if (dl) {
@@ -2906,8 +3528,7 @@ function importSheet(res, name) {
         S = res.state;
         log("Копия", "", `Данные заменены из файла ${name}`);
         sheets.length = 0;
-        commit();
-        toast("Данные загружены");
+        commit(`Данные заменены из файла`);
       };
     } });
 }
@@ -2923,12 +3544,81 @@ document.addEventListener("click", e => {
     case "stock-filter": view.stockFilter = v; render(); break;
     case "series-toggle": view.openSeries[v] = view.openSeries[v] === false; render(); break;
     case "order-filter": view.orderFilter = v; render(); break;
+    case "omode": view.omode = v; render(); scrollTop0(); break;
+    case "goto": {
+      const [tab, sub] = v.split(":");
+      view.tab = tab; sheets.length = 0;
+      if (tab === "stock") view.stockFilter = sub;
+      if (tab === "orders") { view.omode = "orders"; view.orderFilter = sub; }
+      if (tab === "budget") view.btab = sub;
+      render(); scrollTop0(); break;
+    }
     case "series": sheets.length = 0; view.tab = "stock"; view.stockFilter = "all"; view.q = v; render(); scrollTop0(); break;
     case "item": openSheet(itemSheet(id)); break;
     case "item-form": openSheet(itemForm(id)); break;
+    case "item-copy": {
+      const src = find("items", id); if (!src) break;
+      const copy = touch({ id: Core.uid(), name: src.name + " (копия)", series: src.series, material: src.material, coating: src.coating,
+        matCost: Core.num(src.matCost), consCost: Core.num(src.consCost), price: Core.num(src.price), note: src.note, readyTotal: 0, madeAt: "" });
+      S.items.push(copy);
+      log("Изделие", copy.id, `Создан дубликат изделия «${src.name}»`);
+      sheets.length = 0; commit();
+      openSheet(itemForm(copy.id));
+      break;
+    }
     case "ready": openSheet(readySheet(id)); break;
     case "batch-form": openSheet(batchForm(el.dataset.item, id)); break;
     case "calendar": openSheet(calendarSheet()); break;
+    case "copy-order": { const d = D.O.get(id); if (d) copyText(orderMessage(d), "Текст заказа скопирован"); break; }
+    case "copy-ready": { const di = D.I.get(id); if (di) copyText(readyMessage(di.item, di), "Текст сообщения скопирован"); break; }
+    case "bulk-ready": openSheet(bulkReadySheet()); break;
+    case "sub-add": openSheet(subAddSheet(id)); break;
+    case "sub-del": {
+      const s = find("subs", id); if (!s) break;
+      const c = find("clients", s.clientId);
+      s.deleted = true; touch(s);
+      log("Клиент", s.clientId, `Подписка снята: ${c ? c.name : ""} — ${s.kind === "серия" ? "серия " : ""}${esc(s.kind === "изделие" ? (find("items", s.ref) || {}).name || "" : s.ref)}`);
+      commit(); break;
+    }
+    case "drop": openSheet(dropSheet(id)); break;
+    case "drop-form": openSheet(dropForm(id, el.dataset.item)); break;
+    case "signup-add": openSheet(signupSheet(id)); break;
+    case "signup-del": {
+      const su = find("signups", id); if (!su) break;
+      const c = find("clients", su.clientId);
+      confirmSheet("Убрать запись?", `${esc(c ? c.name : "")}, ${su.qty} шт. Созданный по ней заказ останется.`, "Убрать", () => {
+        su.deleted = true; touch(su); log("Дроп", su.dropId, `Запись убрана: ${c ? c.name : ""}`); commit("Запись убрана");
+      }, true);
+      break;
+    }
+    case "drop-stage": {
+      const dr = find("drops", id); if (!dr || dr.stage === v) break;
+      const before = dr.stage || "—"; dr.stage = v; touch(dr);
+      const x = D.DR.get(id);
+      log("Дроп", id, `Дроп «${x && x.item ? x.item.name : ""}»: стадия «${before}» → «${v}»`); commit(); break;
+    }
+    case "drop-order": { const o = dropMakeOrder(id); if (o) { commit(); toast(`Создан заказ №${o.no}`); } break; }
+    case "drop-orders-all": {
+      const x = D.DR.get(id); if (!x) break;
+      const list = x.signups.filter(s => !s.order || s.order.status === Core.CANCELLED);
+      if (!list.length) break;
+      confirmSheet("Создать заказы?", `По ${list.length} ${plural(list.length, "записи", "записям", "записям")} будут созданы заказы с ценой дропа и скидкой клиента.`, "Создать", () => {
+        let n = 0; list.forEach(s => { if (dropMakeOrder(s.rec.id)) n++; });
+        commit(); toast(`Создано заказов: ${n}`);
+      });
+      break;
+    }
+    case "drop-batch": {
+      const x = D.DR.get(id); if (!x || !x.item) break;
+      const di = D.I.get(x.item.id);
+      const need = Math.max(0, x.qty - (di ? di.planned + Math.max(0, di.free) : 0));
+      if (!need) break;
+      S.batches.push(touch({ id: Core.uid(), itemId: x.item.id, qty: need, done: 0, due: x.drop.due || "", note: `дроп «${x.item.name}»` }));
+      log("Изделие", x.item.id, `«${x.item.name}»: тираж ${need} шт под дроп${x.drop.due ? ` к ${fdate(x.drop.due)}` : ""}`);
+      commit(); toast("Тираж создан"); break;
+    }
+    case "copy-drop": { const x = D.DR.get(id); if (x) copyText(dropAnnounce(x), "Анонс скопирован"); break; }
+    case "copy-queue": { const x = D.DR.get(id); if (x) copyText(dropQueueText(x), "Список скопирован"); break; }
     case "show": openSheet(showSheet(id)); break;
     case "show-form": openSheet(showForm(id)); break;
     case "show-take": openSheet(showTakeSheet(id)); break;
@@ -2940,7 +3630,7 @@ document.addEventListener("click", e => {
         o.deleted = true; touch(o);
         S.lines.forEach(l => { if (l.orderId === id && !l.deleted) { l.deleted = true; touch(l); } });
         S.payments.forEach(p => { if (p.orderId === id && !p.deleted) { p.deleted = true; touch(p); } });
-        log("Выставка", o.showId || "", `Удалена продажа на выставке: ${rub(d ? d.total : 0)}`); commit();
+        log("Выставка", o.showId || "", `Удалена продажа на выставке: ${rub(d ? d.total : 0)}`); commit("Продажа удалена");
       }, true);
       break;
     }
@@ -2951,7 +3641,7 @@ document.addEventListener("click", e => {
       confirmSheet("Удалить изделие?", `«${esc(it.name)}» пропадёт со склада. В выгрузке Excel запись останется с пометкой «Удалено».`, "Удалить", () => {
         it.deleted = true; touch(it);
         Core.live(S.subs).forEach(s => { if (s.kind === "изделие" && s.ref === id) { s.deleted = true; touch(s); } });
-        log("Изделие", id, `Удалено изделие «${it.name}»`); sheets.length = 0; commit();
+        log("Изделие", id, `Удалено изделие «${it.name}»`); sheets.length = 0; commit(`Удалено: ${it.name}`);
       }, true);
       break;
     }
@@ -2963,6 +3653,7 @@ document.addEventListener("click", e => {
       log("Заказ", id, `Заказ №${o.no}: статус «${before}» → «${v}»`); commit(); break;
     }
     case "order-cancel": openSheet(cancelSheet(id)); break;
+    case "order-return": openSheet(returnSheet(id)); break;
     case "order-restore": {
       const o = find("orders", id); o.status = "Новый"; touch(o);
       log("Заказ", id, `Заказ №${o.no} возвращён в работу`); commit(); break;
@@ -2974,7 +3665,8 @@ document.addEventListener("click", e => {
         o.deleted = true; touch(o);
         S.lines.forEach(l => { if (l.orderId === id && !l.deleted) { l.deleted = true; touch(l); } });
         S.plans.forEach(p => { if (p.orderId === id && !p.deleted) { p.deleted = true; touch(p); } });
-        log("Заказ", id, `Удалён заказ №${o.no}`); sheets.length = 0; commit();
+        S.ops.forEach(z => { if (z.orderId === id && !z.deleted) { z.deleted = true; touch(z); } });
+        log("Заказ", id, `Удалён заказ №${o.no}`); sheets.length = 0; commit(`Удалён заказ №${o.no}`);
       }, true);
       break;
     }
@@ -2985,7 +3677,7 @@ document.addEventListener("click", e => {
       const p = find("payments", id);
       confirmSheet("Удалить оплату?", `${esc(p.kind)} ${rub(p.amount)} от ${fdate(p.date)}. Склад, выручка и долг пересчитаются.`, "Удалить", () => {
         p.deleted = true; touch(p); const c = find("clients", p.clientId);
-        log("Оплата", id, `Удалена оплата ${rub(p.amount)} (${c ? c.name : ""})`); commit();
+        log("Оплата", id, `Удалена оплата ${rub(p.amount)} (${c ? c.name : ""})`); commit(`Удалена оплата ${rub(p.amount)}`);
       }, true);
       break;
     }
@@ -2993,7 +3685,7 @@ document.addEventListener("click", e => {
     case "plan-del": {
       const p = find("plans", id);
       confirmSheet("Удалить ожидаемую оплату?", `${rub(p.amount)}${p.date ? " к " + fdate(p.date) : ""}.`, "Удалить", () => {
-        p.deleted = true; touch(p); log("Ожидаемая оплата", id, `Удалена ожидаемая оплата ${rub(p.amount)}`); commit();
+        p.deleted = true; touch(p); log("Ожидаемая оплата", id, `Удалена ожидаемая оплата ${rub(p.amount)}`); commit("Ожидаемая оплата удалена");
       }, true);
       break;
     }
@@ -3007,27 +3699,27 @@ document.addEventListener("click", e => {
         c.deleted = true; touch(c);
         S.subs.forEach(s => { if (s.clientId === id && !s.deleted) { s.deleted = true; touch(s); } });
         S.plans.forEach(p => { if (p.clientId === id && !p.deleted) { p.deleted = true; touch(p); } });
-        log("Клиент", id, `Удалён клиент ${c.name}`); sheets.length = 0; commit();
+        log("Клиент", id, `Удалён клиент ${c.name}`); sheets.length = 0; commit(`Удалён клиент ${c.name}`);
       }, true);
       break;
     }
     case "size": applySize(v); render(); break;
+    case "theme": applyTheme(v); render(); break;
     case "btab": view.btab = v; render(); break;
     case "ym": view.ym = Core.shiftYm(view.ym, +v); render(); break;
     case "op-filter": view.opFilter = v; render(); break;
-    case "op-form": openSheet(opForm(id, v)); break;
+    case "op-form": openSheet(opForm(id, v, el.dataset.show)); break;
     case "op": openSheet(opSheet(id)); break;
     case "account": openSheet(accountSheet(id)); break;
     case "account-form": openSheet(accountForm(id)); break;
-    case "loan": openSheet(loanSheet(id)); break;
-    case "loan-form": openSheet(loanForm(id)); break;
-    case "loan-pay": openSheet(loanPayForm(id, el.dataset.op)); break;
     case "install-help": openSheet(installSheet()); break;
     case "export": doExport(); break;
     case "import": doImportPick(); break;
     case "wipe":
       confirmSheet("Стереть все данные?", "Склад, клиенты, заказы, оплаты и журнал будут удалены с этого телефона. Отменить нельзя. Сначала выгрузите копию.", "Стереть", () => {
-        S = Core.emptyState(); Core.migrate(S); sheets.length = 0; save(); D = Core.derive(S); render(); toast("Данные стёрты");
+        const before = snapshot();
+        S = Core.emptyState(); Core.migrate(S); sheets.length = 0; save(); D = Core.derive(S); prevSnap = snapshot(); render();
+        toastUndo("Данные стёрты", before);
       }, true);
       break;
   }
@@ -3065,6 +3757,7 @@ if (migNotes.length) save();
 const startNotes = Core.reconcile(S);
 if (startNotes.length) { startNotes.forEach(n => log(n.entity, n.entityId, n.text)); save(); }
 D = Core.derive(S);
+prevSnap = snapshot();
 render();
 if (window.claude && typeof window.claude.use === "function") getDownloads();
 try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) {}
