@@ -1494,7 +1494,7 @@ function formData(root) {
   return o;
 }
 function clientPicker(mode, label) {
-  const clients = Core.live(S.clients).filter(c => c.system !== "show").sort((a, b) => a.name.localeCompare(b.name, "ru"));
+  const clients = Core.live(S.clients).filter(c => !c.system).sort((a, b) => a.name.localeCompare(b.name, "ru"));
   const isNew = mode === "new" || !clients.length;
   return `<div class="chips" style="margin-bottom:10px">
       <button type="button" data-cmode="list" aria-pressed="${!isNew}" ${clients.length ? "" : "disabled"}>Из списка</button>
@@ -1583,8 +1583,8 @@ function renderToday() {
       ${soon.length ? soon.slice(0, 10).map(row).join("") : `<p class="hint indent">Дел на неделю не запланировано.</p>`}
     </section>
     <div class="btns g3" style="margin-bottom:10px">
+      <button class="btn" data-a="sale">${ic("coins")}Продажа</button>
       <button class="btn" data-a="bulk-ready">${ic("checkc")}Готовые</button>
-      <button class="btn" data-a="order-form">${ic("docplus")}Заказ</button>
       <button class="btn" data-a="op-form" data-v="Расход">${ic("down")}Расход</button>
     </div>`;
 }
@@ -1669,6 +1669,31 @@ function stockCard(di) {
     ${flags.length ? `<span class="flags">${flags.join("")}</span>` : ""}
   </button>`;
 }
+function activeDropFor(itemId) {
+  let found = null;
+  D.DR.forEach(x => { if (!found && x.drop.itemId === itemId && !x.drop.closed) found = x; });
+  return found;
+}
+// Все, кто ждёт изделие: записи активного дропа + предзаказы + подписки на серию
+function waitersOf(item) {
+  const rows = [];
+  const seen = new Set();
+  const drop = activeDropFor(item.id);
+  if (drop) drop.signups.forEach(s => {
+    if (!s.client) return;
+    seen.add(s.client.id);
+    rows.push({ client: s.client, qty: s.qty, kind: "drop", sub: `дроп · ${s.qty} шт${s.order ? `, заказ №${s.order.no}` : ""}`, signup: s.rec, order: s.order });
+  });
+  Core.live(S.subs).forEach(s => {
+    const c = D.clientMap.get(s.clientId); if (!c || seen.has(c.id)) return;
+    if (s.kind === "изделие" && s.ref === item.id) { seen.add(c.id); rows.push({ client: c, qty: 1, kind: "sub", sub: "ждёт это изделие", sub_id: s.id }); }
+  });
+  Core.live(S.subs).forEach(s => {
+    const c = D.clientMap.get(s.clientId); if (!c || seen.has(c.id)) return;
+    if (s.kind === "серия" && item.series && s.ref === item.series) { seen.add(c.id); rows.push({ client: c, qty: 1, kind: "series", sub: `по серии «${item.series}»`, sub_id: s.id }); }
+  });
+  return rows;
+}
 function subscribersOf(item) {
   const ids = new Set(Core.live(S.subs).filter(s => (s.kind === "изделие" && s.ref === item.id) || (s.kind === "серия" && item.series && s.ref === item.series)).map(s => s.clientId));
   return [...ids].map(id => D.clientMap.get(id)).filter(Boolean);
@@ -1692,8 +1717,37 @@ function itemSheet(id) {
     const i = di.item, st = S.settings;
     const ordersWith = [];
     D.O.forEach(d => { if (d.order.status === Core.CANCELLED) return; d.lines.forEach(x => { if (x.line.itemId === id && !d.order.recognizedAt) ordersWith.push([d, x]); }); });
-    const subs = subscribersOf(i);
+    const drop = activeDropFor(id);
     const t = Core.today();
+    const people = [];
+    const rest = d => Core.round2(d.total - d.paid);
+    waitersOf(i).forEach(r => {
+      if (r.kind === "drop" && r.order) return;
+      people.push({ name: r.client.name, sub: `ждёт${r.qty > 1 ? ` · ${r.qty} шт` : ""}${r.kind === "series" ? ` · по серии «${esc(i.series)}»` : ""}`,
+        act: "client", actId: r.client.id,
+        buttons: `${r.kind === "drop" ? `<button class="btn small" data-a="drop-order" data-id="${r.signup.id}">${ic("docplus")}Заказ</button>` : ""}
+          ${r.kind === "drop" ? `<button class="btn textred" data-a="signup-del" data-id="${r.signup.id}" aria-label="Убрать">${ic("trash")}</button>` : r.kind === "sub" ? `<button class="btn textred" data-a="sub-del" data-id="${r.sub_id}" aria-label="Убрать">${ic("trash")}</button>` : ""}` });
+    });
+    const bought = new Map();
+    D.O.forEach(dd => {
+      if (dd.order.status === Core.CANCELLED) return;
+      const c = D.clientMap.get(dd.order.clientId); if (!c) return;
+      const qty = dd.lines.filter(x => x.line.itemId === id).reduce((a, x) => a + Core.num(x.line.qty), 0);
+      if (!qty) return;
+      if (!dd.order.recognizedAt) {
+        const left = rest(dd);
+        people.push({ name: c.name, sub: `заказ №${dd.order.no} · ${qty} шт · ${left > 0.005 ? `к оплате ${rub(left)}` : "оплачен"}`,
+          act: "order", actId: dd.order.id,
+          buttons: `${left > 0.005 ? `<button class="btn small" data-a="pay-form" data-client="${c.id}" data-order="${dd.order.id}">${ic("card")}Оплата</button>` : ""}` });
+      } else {
+        const k = dd.gross > 0 ? dd.total / dd.gross : 1;
+        const sum = dd.lines.filter(x => x.line.itemId === id).reduce((a, x) => a + Core.num(x.line.qty) * Core.num(x.line.price) * k, 0);
+        const r0 = bought.get(c.id) || { name: c.name, id: c.id, qty: 0, sum: 0, last: "" };
+        r0.qty += qty; r0.sum += sum; if ((dd.order.date || "") > r0.last) r0.last = dd.order.date || "";
+        bought.set(c.id, r0);
+      }
+    });
+    bought.forEach(r0 => people.push({ name: r0.name, sub: `куплено ${r0.qty} шт на ${rub(r0.sum)}${r0.last ? ` · ${fdate(r0.last)}` : ""}`, act: "client", actId: r0.id, buttons: "" }));
     const byClient = new Map();
     D.O.forEach(d => {
       if (d.order.status === Core.CANCELLED) return;
@@ -1729,12 +1783,11 @@ function itemSheet(id) {
           </div>
           <div class="col">
             <div><span><i class="dot d-s"></i>Продано</span><b class="num">${di.sold}</b></div>
-            <div><span><i class="dot d-x"></i>Не хватает</span><b class="num" ${di.shortage ? 'style="color:var(--red)"' : ""}>${di.shortage}</b></div>
-            <div><span>Всего (сделать + на руках)</span><b class="num">${di.totalQty}</b></div>
+            <div><span>Всего</span><b class="num">${di.totalQty}</b></div>
           </div>
         </div>
         ${i.madeAt ? `<div class="kv sep"><span>Изготовлено</span><span>${fdate(i.madeAt)} · на складе ${ageText(i.madeAt)}</span></div>` : ""}
-        <div class="btns"><button class="btn primary" data-a="ready" data-id="${id}">${ic("checkc")}Готово: добавить на склад</button></div>
+        <div class="btns g2"><button class="btn primary" data-a="ready" data-id="${id}">${ic("checkc")}Готово</button><button class="btn" data-a="sale" data-id="${id}">${ic("coins")}Продать</button></div>
       </section>
       <section class="block"><h3>${ic("cal")}Тиражи и сроки</h3>
         ${di.batches.filter(x => x.open > 0).map(x => { const late = x.batch.due && x.batch.due < t;
@@ -1746,22 +1799,15 @@ function itemSheet(id) {
         ${di.totalQty ? `<p class="hint">«За ${pcs(di.totalQty)}» — осталось сделать по тиражам плюс готовые на руках.</p>` : ""}
         ${!Core.num(i.price) ? `<p class="hint" style="color:var(--red)">Цена не указана — маржа отрицательная. Укажите цену в «Изменить».</p>` : ""}
       </section>
-      <section class="block"><h3>${ic("doc")}Под заказы</h3>
-        ${ordersWith.length ? ordersWith.map(([d, x]) => `<button class="rowlink" data-a="order" data-id="${d.order.id}"><span class="l">Заказ №${d.order.no}, ${esc((D.clientMap.get(d.order.clientId) || {}).name || "")}</span>${x.alloc < x.line.qty ? `<span class="pill red round">не хватает ${x.line.qty - x.alloc} из ${x.line.qty}</span>` : `<span class="pill green round">в резерве ${x.alloc}</span>`}${ic("chev", "chev")}</button>`).join("") : `<p class="hint indent">Активных заказов с этим изделием нет.</p>`}
-      </section>
-      <section class="block"><h3>${ic("users")}Кто заказывал</h3>
-        ${clientRows.length ? clientRows.map(r => `<button class="rowlink" data-a="client" data-id="${r.client.id}"><span class="l"><b>${esc(r.client.name)}</b><small>${r.bought ? `куплено ${r.bought} шт на ${rub(r.sum)}` : "покупок нет"}${r.pending ? ` · в работе ${r.pending} шт` : ""}${r.last ? ` · последний ${fdate(r.last)}` : ""}</small></span>${ic("chev", "chev")}</button>`).join("") : `<p class="hint indent">Это изделие ещё никто не заказывал.</p>`}
-        ${clientRows.length ? `<p class="hint">Всего покупателей: ${clientRows.length}. Продажи с выставок собраны одной строкой «Продажи на выставках».</p>` : ""}
-      </section>
       ${(() => {
         const ds = [...D.DR.values()].filter(x => x.drop.itemId === id && !x.drop.closed);
         return `<section class="block"><h3>${ic("up")}Дроп</h3>${ds.length ? ds.map(x => `<button class="rowlink" data-a="drop" data-id="${x.drop.id}"><span class="l"><b>${esc(x.drop.stage || "Дроп")}</b><small>${x.people} ${plural(x.people, "запись", "записи", "записей")} · ${pcs(x.qty)}${x.waiting ? ` · без заказа ${x.waiting}` : ""}</small></span>${ic("chev", "chev")}</button>`).join("") : `<p class="hint indent">Активного дропа нет.</p>`}
           <div class="btns"><button class="btn" data-a="drop-form" data-item="${id}">${ic("plus")}${ds.length ? "Ещё дроп" : "Создать дроп по этому изделию"}</button></div></section>`;
       })()}
-      <section class="block"><h3>${ic("bell")}Предзаказ: кто ждёт</h3>
-        ${subs.map(c => { const own = Core.live(S.subs).find(s => s.clientId === c.id && s.kind === "изделие" && s.ref === id);
-          return `<div class="rowlink plain"><button class="l plainbtn" data-a="client" data-id="${c.id}">${esc(c.name)}<small>${own ? "ждёт это изделие" : `по серии «${esc(i.series)}»`}</small></button>${telLink(c.phone)}${own ? `<button class="btn textred" data-a="sub-del" data-id="${own.id}" aria-label="Убрать из предзаказа">${ic("trash")}</button>` : ""}</div>`; }).join("") || `<p class="hint indent">Пока никто не записан.</p>`}
-        <div class="btns g2"><button class="btn" data-a="sub-add" data-id="${id}">${ic("plus")}Записать в предзаказ</button>${subs.length ? `<button class="btn" data-a="copy-ready" data-id="${id}">${ic("doc")}Текст «готово»</button>` : ""}</div>
+      <section class="block"><h3>${ic("users")}Люди${drop ? ` · дроп «${esc(drop.drop.stage || "")}»` : ""}</h3>
+        ${people.length ? people.map(r => `<div class="rowlink plain"><button class="l plainbtn" data-a="${r.act}" data-id="${r.actId}">${esc(r.name)}<small>${r.sub}</small></button>
+          ${r.buttons || ""}</div>`).join("") : `<p class="hint indent">Пока никого: ни записей, ни заказов.</p>`}
+        <div class="btns g2"><button class="btn primary" data-a="sub-add" data-id="${id}">${ic("plus")}Записать</button>${people.length ? `<button class="btn" data-a="copy-ready" data-id="${id}">${ic("doc")}Текст «готово»</button>` : ""}</div>
       </section>
       ${i.note ? `<section class="block"><h3>Заметка</h3><p style="margin:0;white-space:pre-wrap">${esc(i.note)}</p></section>` : ""}
       <div class="btns g3 bottom"><button class="btn outline" data-a="item-form" data-id="${id}">${ic("pencil")}Изменить</button><button class="btn" data-a="item-copy" data-id="${id}">${ic("doc")}Дубликат</button><button class="btn danger" data-a="item-del" data-id="${id}">${ic("trash")}Удалить</button></div>` };
@@ -1909,7 +1955,7 @@ function readySheet(id) {
           sheets.pop();
           commit();
           const d2 = D.I.get(i.id);
-          if (subscribersOf(i).length && d2 && d2.free > 0) openSheet(notifySheet(i.id));
+          if (waitersOf(i).length && d2 && d2.free > 0) openSheet(notifySheet(i.id));
         };
       } };
   };
@@ -1940,7 +1986,7 @@ function bulkReadySheet() {
           });
           log("Изделие", "", `Отмечено готовыми: ${parts.join(", ")}`);
           sheets.pop(); commit();
-          const notify = picks.map(([di]) => D.I.get(di.item.id)).filter(di => di && di.free > 0 && subscribersOf(di.item).length);
+          const notify = picks.map(([di]) => D.I.get(di.item.id)).filter(di => di && di.free > 0 && waitersOf(di.item).length);
           if (notify.length) openSheet(notifySheet(notify[0].item.id));
         };
       } };
@@ -1949,7 +1995,7 @@ function bulkReadySheet() {
 function notifySheet(id) {
   return () => {
     const i = find("items", id); if (!i) return null;
-    const subs = subscribersOf(i);
+    const subs = waitersOf(i).map(r => r.client);
     return { title: "Кого уведомить", key: "notify" + id, html: `<p class="hint">«${esc(i.name)}» появилось в свободных готовых. Подписаны на изделие или серию «${esc(i.series || "—")}»:</p>
       <section class="block">${subs.map(c => `<div class="rowlink plain"><span class="l"><b>${esc(c.name)}</b><small>${esc(c.pickup || "")}</small></span>${c.phone ? telLink(c.phone) : ""}</div>`).join("")}</section>
       <div class="btns g2"><button class="btn" data-a="copy-ready" data-id="${id}">${ic("doc")}Скопировать текст</button><button class="btn primary" data-a="close">Понятно</button></div>` };
@@ -2151,7 +2197,7 @@ function orderForm(id, presetClient) {
   return () => {
     const o = id ? find("orders", id) : null;
     if (id && !o) return null;
-    const clients = Core.live(S.clients).filter(c => c.system !== "show" || c.id === (o && o.clientId)).sort((a, b) => a.name.localeCompare(b.name, "ru"));
+    const clients = Core.live(S.clients).filter(c => !c.system || c.id === (o && o.clientId)).sort((a, b) => a.name.localeCompare(b.name, "ru"));
     const items = Core.live(S.items).sort((a, b) => a.name.localeCompare(b.name, "ru"));
     if (!clients.length) return { title: "Новый заказ", key: "orderform-empty", html: `<div class="empty">Сначала добавьте клиента — заказ всегда привязан к нему.<br><button class="btn primary" data-a="client-form">${ic("plus")}Добавить клиента</button></div>` };
     if (!items.length) return { title: "Новый заказ", key: "orderform-empty2", html: `<div class="empty">Сначала добавьте изделие на склад.<br><button class="btn primary" data-a="item-form">${ic("plus")}Добавить изделие</button></div>` };
@@ -2445,7 +2491,7 @@ function renderClients() {
 function clientList() {
   const all = [...D.C.values()];
   const q = view.cq.toLowerCase();
-  let list = all.filter(dc => dc.client.system !== "show");
+  let list = all.filter(dc => !dc.client.system);
   if (q) list = list.filter(dc => [dc.client.name, dc.client.phone, dc.client.pickup].join(" ").toLowerCase().includes(q));
   list.sort((a, b) => a.client.name.localeCompare(b.client.name, "ru"));
   if (list.length) return list.map(clientCard).join("");
@@ -2535,9 +2581,11 @@ function clientForm(id) {
   };
 }
 function subAddSheet(itemId) {
-  let cmode = Core.live(S.clients).filter(c => c.system !== "show").length ? "list" : "new";
+  let cmode = Core.live(S.clients).filter(c => !c.system).length ? "list" : "new";
   return () => {
     const it = find("items", itemId); if (!it) return null;
+    const drop = activeDropFor(itemId);
+    if (drop) { sheets.pop(); sheets.push(signupSheet(drop.drop.id)); return sheets[sheets.length - 1](); }
     return { title: `Предзаказ: ${it.name}`, key: "subadd" + itemId, html: `<form id="f-subadd"><section class="block">
       ${clientPicker(cmode, "Кто записывается *")}
       <p class="hint">Когда изделие станет готовым, приложение покажет, кому написать, и даст готовый текст.</p>
@@ -2719,7 +2767,7 @@ function budgetOps(B) {
     ${monthSwitch()}
     <div class="seg" role="group" aria-label="Фильтр операций">${OP_FILTERS.map(([k, l]) => `<button data-a="op-filter" data-v="${k}" aria-pressed="${f === k}">${l}</button>`).join("")}</div>
     <section class="block"><div class="kv"><span>Поступления</span><span class="num" style="color:var(--reserve-ink);font-weight:600">+ ${rub(inSum)}</span></div><div class="kv"><span>Списания</span><span class="num" style="font-weight:600">− ${rub(outSum)}</span></div></section>
-    <div class="btns g2" style="margin:0 0 10px"><button class="btn primary" data-a="op-form" data-v="Расход">${ic("down")}Расход</button><button class="btn" data-a="op-form" data-v="Доход">${ic("up")}Доход</button></div>
+    <div class="btns g3" style="margin:0 0 10px"><button class="btn primary" data-a="op-form" data-v="Расход">${ic("down")}Расход</button><button class="btn" data-a="op-form" data-v="Доход">${ic("up")}Доход</button><button class="btn" data-a="sale">${ic("coins")}Продажа</button></div>
     <div class="list">${rows.length ? rows.map(r => r.html).join("") : `<div class="empty">В этом месяце операций нет.</div>`}</div>`;
 }
 function budgetAccounts(B) {
@@ -2772,6 +2820,7 @@ function opForm(id, presetKind, presetShow) {
         ${k === "Расход" || k === "Доход" || k === "Аванс поставщику" ? `<label class="f">Категория${k === "Аванс поставщику" ? " (станет расходом при закрытии)" : ""}<input name="category" list="dl-cats" value="${esc(draft.category || cats[0] || "")}"></label><datalist id="dl-cats">${cats.map(x => `<option value="${esc(x)}">`).join("")}</datalist>` : ""}
         ${k === "Аванс поставщику" ? fld("Поставщик", "counterparty", draft.counterparty) : ""}
         ${fld("Заметка", "note", draft.note)}
+        ${k === "Доход" ? `<p class="hint">Продажу изделия вносите кнопкой «Продажа» — тогда оно спишется со склада. Здесь — прочие доходы.</p>` : ""}
         ${draft.showId && D.showMap.get(draft.showId) ? `<p class="hint">Расход привязан к выставке «${esc(D.showMap.get(draft.showId).name)}» и попадёт в её прибыль.</p>` : ""}
         ${k === "Кредит получен" ? `<p class="hint">Получение кредита — не доход: деньги на счёте растут, долг учитывается в карточке кредита.</p>` : ""}
       </section>
@@ -3054,6 +3103,16 @@ function dropForm(id, presetItem) {
           const rec = dr || { id: Core.uid(), closed: false };
           Object.assign(rec, { itemId: v.itemId, stage: v.stage || DROP_STAGES[0], price: Core.round2(Core.num(v.price)) || Core.num(it.price), planQty: Math.max(0, Math.round(Core.num(v.planQty))), due: v.due, note: v.note });
           touch(rec); if (!dr) S.drops.push(rec);
+          if (!dr) {
+            const moved = [];
+            Core.live(S.subs).forEach(s => {
+              if (s.kind !== "изделие" || s.ref !== rec.itemId) return;
+              const c = find("clients", s.clientId); if (!c) return;
+              S.signups.push(touch({ id: Core.uid(), dropId: rec.id, clientId: s.clientId, qty: 1, date: Core.today(), stage: rec.stage, orderId: "", note: "из предзаказа" }));
+              s.deleted = true; touch(s); moved.push(c.name);
+            });
+            if (moved.length) log("Дроп", rec.id, `В дроп перенесены записи предзаказа: ${moved.join(", ")}`);
+          }
           log("Дроп", rec.id, `${dr ? "Изменён" : "Создан"} дроп «${it.name}», стадия «${rec.stage}»${rec.due ? `, срок ${fdate(rec.due)}` : ""}`);
           sheets.pop(); if (!dr) sheets.push(dropSheet(rec.id)); commit();
           if (!dr) openSheet(signupSheet(rec.id));
@@ -3126,7 +3185,7 @@ function dropSheet(id) {
   };
 }
 function signupSheet(dropId) {
-  let cmode = Core.live(S.clients).filter(c => c.system !== "show").length ? "list" : "new";
+  let cmode = Core.live(S.clients).filter(c => !c.system).length ? "list" : "new";
   return () => {
     const x = D.DR.get(dropId); if (!x) return null;
     return { title: `Записать: ${x.item ? x.item.name : ""}`, key: "signup" + dropId, html: `<form id="f-signup"><section class="block">
@@ -3221,6 +3280,74 @@ function showForm(id) {
           touch(rec); if (!id) S.shows.push(rec);
           log("Выставка", rec.id, `${id ? "Изменена" : "Создана"} выставка «${rec.name}»`);
           sheets.pop(); if (!id) sheets.push(showSheet(rec.id)); commit();
+        };
+      } };
+  };
+}
+function retailBuyer() {
+  let c = S.clients.find(x => !x.deleted && x.system === "retail");
+  if (!c) { c = touch({ id: Core.uid(), name: "Розничные продажи", phone: "", pickup: "", discount: 0, note: "Служебная запись: продажи без указания клиента.", system: "retail" }); S.clients.push(c); }
+  return c;
+}
+function saleSheet(presetItem) {
+  let cmode = "none";
+  return () => {
+    const items = [...D.I.values()].sort((a, b) => a.item.name.localeCompare(b.item.name, "ru"));
+    if (!items.length) return { title: "Продажа", key: "sale-empty", html: `<div class="empty">Сначала добавьте изделие на склад.</div>` };
+    const accs = Core.live(S.accounts);
+    const first = presetItem || items[0].item.id;
+    return { title: "Продажа", key: "sale" + (presetItem || ""), html: `<form id="f-sale"><section class="block">
+      ${sel("Изделие *", "itemId", items.map(di => [di.item.id, `${di.item.name} (свободно ${Math.max(0, di.free)})`]), first)}
+      <div class="grid2">${fld("Штук", "qty", 1, "number", 'min="1" step="1" inputmode="numeric"')}${fld("Цена за шт, ₽", "price", (find("items", first) || {}).price || "", "number")}</div>
+      <div class="grid2">${fld("Скидка, ₽", "discountSum", "", "number")}${fld("Дата", "date", Core.today(), "date")}</div>
+      ${accs.length ? accountSelect("accountId", "Деньги на счёт") : `<p class="hint">Сначала добавьте счёт в разделе «Бюджет».</p>`}
+      <div class="chips" style="margin:10px 0">
+        <button type="button" data-cmode="none" aria-pressed="${cmode === "none"}">Без клиента</button>
+        <button type="button" data-cmode="list" aria-pressed="${cmode === "list"}">Из списка</button>
+        <button type="button" data-cmode="new" aria-pressed="${cmode === "new"}">Новый</button>
+      </div>
+      ${cmode === "none" ? `<p class="hint">Продажа запишется на «Розничные продажи».</p>` : clientPicker(cmode === "new" ? "new" : "list")}
+      <div class="kv accent sep"><span>К оплате</span><span class="num" id="sale-total">—</span></div>
+      <p class="hint">Изделие спишется со склада, деньги попадут на счёт, выручка — в бюджет.</p>
+      </section><div id="f-err" class="err"></div>${formBtns("Продано")}</form>`,
+      after: l => {
+        const form = $("#f-sale", l);
+        const calc = () => {
+          const v = formData(form);
+          const gross = Math.max(0, Math.round(Core.num(v.qty))) * Core.num(v.price);
+          const disc = Math.min(gross, Core.num(v.discountSum));
+          $("#sale-total", l).textContent = rub(gross - disc);
+        };
+        form.addEventListener("input", calc);
+        form.addEventListener("change", e => {
+          if (e.target.name === "itemId") { const it = find("items", e.target.value); if (it) form.price.value = it.price; }
+          calc();
+        });
+        l.querySelectorAll("[data-cmode]").forEach(btn => (btn.onclick = e => { e.stopPropagation(); cmode = btn.dataset.cmode; renderSheet(); }));
+        calc();
+        form.onsubmit = e => {
+          e.preventDefault();
+          const v = formData(form);
+          const err = $("#f-err", l);
+          const q = Math.max(0, Math.round(Core.num(v.qty)));
+          const price = Core.round2(Core.num(v.price));
+          if (!v.itemId || q < 1) { err.textContent = "Выберите изделие и количество."; return; }
+          if (price <= 0) { err.textContent = "Укажите цену."; return; }
+          if (!v.accountId) { err.textContent = "Выберите счёт."; return; }
+          let client;
+          if (cmode === "none") client = retailBuyer();
+          else { const r = resolveClient(v); if (r.error) { err.textContent = r.error; return; } client = r.client; }
+          const di = D.I.get(v.itemId);
+          if (di && Math.max(0, di.free) < q) { err.textContent = `Свободных готовых только ${Math.max(0, di.free)} шт. Отметьте «Готово» или уменьшите количество.`; return; }
+          const gross = q * price, disc = Core.round2(Math.min(gross, Core.num(v.discountSum))), total = Core.round2(gross - disc);
+          const order = touch({ id: Core.uid(), no: S.settings.nextOrderNo++, clientId: client.id, date: v.date || Core.today(), status: "Получен", discount: 0, discountSum: disc, pickup: "", note: "Продажа", recognizedAt: "" });
+          S.orders.push(order);
+          S.lines.push(touch({ id: Core.uid(), orderId: order.id, itemId: v.itemId, qty: q, price, costSnap: "" }));
+          S.payments.push(touch({ id: Core.uid(), clientId: client.id, orderId: order.id, date: v.date || Core.today(), kind: "Оплата", amount: total, accountId: v.accountId, note: "Продажа" }));
+          const it = find("items", v.itemId);
+          log("Заказ", order.id, `Продажа: ${it ? it.name : ""} ×${q} за ${rub(total)}${cmode === "none" ? "" : `, ${client.name}`}, ${accName(v.accountId)}`);
+          sheets.pop(); commit();
+          toast(`Продано на ${rub(total)}`);
         };
       } };
   };
@@ -3654,6 +3781,7 @@ document.addEventListener("click", e => {
     }
     case "order-cancel": openSheet(cancelSheet(id)); break;
     case "order-return": openSheet(returnSheet(id)); break;
+    case "sale": openSheet(saleSheet(id)); break;
     case "order-restore": {
       const o = find("orders", id); o.status = "Новый"; touch(o);
       log("Заказ", id, `Заказ №${o.no} возвращён в работу`); commit(); break;
